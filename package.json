@@ -1,0 +1,26 @@
+{
+  "name": "project-clone",
+  "version": "1.0.0",
+  "description": "Project Web",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nguyenxuananh0910/test1.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nguyenxuananh0910/test1/issues"
+  },
+  "homepage": "https://github.com/nguyenxuananh0910/test1#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.13"
+  }
+}
