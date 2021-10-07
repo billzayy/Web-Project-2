@@ -7,10 +7,11 @@ const app = express();
 app.use(express.static(path.join(__dirname + '/public')));
 
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/Main.html');
+    res.sendFile(__dirname + '/test.html');
 })
 
 app.get('/data', (req, res) => {
+    
      var config = {
         user: 'sa',
         password: 'tuanhdangiu',
@@ -42,29 +43,33 @@ app.get('/data', (req, res) => {
                 console.log(err)
             }
 
-            var result = `<table border = "2px solid green">`
+            var result = `<div class="product-content-item item">`
 
             recordset.recordsets[0].forEach(row => {
                 result +=
-                    `<div style = "display: inline-block; border: 2px solid red; width : 300px">
-                        <img style = "width:300px" src="./images/${row['Image']}" alt="">
-                        <div style = "text-align: center; line-height: 30px">
-                            <b>${row['Name']}</b>
+                    `
+                    <img src="./images/${row['Image']}" alt="">
+                    <div class="product-content-item-text">
+                        <div class="product-content-item-text-top">
+                            <h1>${row['Name']}</h1>
+                            <p>${row['Price']}<sup>đ</sup></p>
                         </div>
-                        <div style = "text-align: center">
-                            <b>
-                                <span style = "color:red">${row['Price']} vnd</span>
-                            </b>
-                            </div>
-                    </div>`
+                        <button>Thêm vào giỏ</button>
+                        <div class="product-content-item-text-social">
+                            <i class="fab fa-facebook-square"></i>
+                            <i class="fab fa-twitter"></i>
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                        </div>
+                    `
             });
 
-            result += "</table>"
+            result += "</div>"
             res.send(result);
         })
     }) 
 })
 
-app.listen(3000, () => {
+app.listen(3100, () => {
     console.log("Server is running ...");
 }) 
