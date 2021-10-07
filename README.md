@@ -1,1 +1,4 @@
-<h1>This is everything files that Bill has fixed them all </h1>
+<h1>Đồ án bán áo Web </h1>
+<ul>
+    <li>1. Vô CMD (màn hình đen) bấm "npm start" để chạy project</li>
+</ul>
