@@ -1,2 +1,2 @@
-<h1>Đồ á Web bán áoh1>
-require : Install Express & Nodemon
+<h1>Đồ á Web bán áo</h1>
+Require : Install Express & Nodemon before use
