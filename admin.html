@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/admin.css">
+    <script src="https://kit.fontawesome.com/54f0cb7e4a.js" crossorigin="anonymous"></script>
+    <script src="ckeditor/ckeditor.js"></script>
+    <script src="ckfinder/ckfinder.js"></script>
+    <title>Admin-TPA</title>
+</head>
+<body>
+
+<section class="admin-content row space-between">
+        <div class="admin-content-left">
+        <div class="header-top-left">
+            <img id="logo" src="./images/logo 2.jpg" alt="">
+        </div>
+            <ul>
+                <li><a  href="#"> <img style="width:20px" src="./images/hi.png" alt="">Chào:  <span style="color:blueviolet; font-size:22px"><?php echo Session::get("admin_name") ?></span><span style="color: red; font-size:20px">❤</span></a>
+                <li><a href="#"><img style="width:20px" src="./images/options.png" alt="">Danh Mục</a>
+                    <ul>
+                        <li><a href="">Danh sách</a></li>
+                        <li><a href="">Thêm</a></li>
+                    </ul>
+                </li>
+                
+                
+                <li><a href="#"><img style="width:20px" src="./images/article.png" alt="">Sản phẩm</a>
+                    <ul>
+                        <li><a href="">Danh sách</a></li>
+                        <li><a href="">Thêm</a></li>
+                    </ul>
+                </li>
+                <li><a href="#"><img style="width:20px" src="./images/picture.png" alt="">Ảnh Sản phẩm</a>
+                    <ul>
+                        <li><a href="">Danh sách</a></li>
+                        <li><a href="">Thêm</a></li>
+                    </ul>
+                </li>
+               
+                <li><a href="/login"> <img style="width:20px" src="./images/logout.png" alt="">Đăng Xuất</a>
+                    
+                </li>
+            </ul>
+        </div>
+        <div class="admin-content-right">
+            <div class="admin-content-right-bg">
+                <img src="./images/a1.jpg" alt="">
+            </div>
+         </div>
+     </section>
+     <section>
+     </section>
+     <script src="./js/admin.js"></script>
+ </body>
+ </html>  
