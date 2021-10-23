@@ -1,27 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>Login</title>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/Login.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/login.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+       function login(){
+        var arr = window.location.href.split('/');
+        $.post("/getlogin",{
+            user : $('#user').val(),
+            password :$('#password').val()
+        },
+        function (data, status) {
+           // alert(JSON.stringify(data));
+           if(data.length === 0){
+               alert("login fail")
+           }
+           else{
+               window.location.href="./index";
+               localStorage.setItem("user",JSON.stringify(data));
+           }
+           
+        });
+        
+       }
+    </script>
     <title>from-login</title>
 </head>
 <body>
-    <div class="container">
-        <form class="forrm-login">
-            <h1>Đăng Nhập</h1>
-            <div class="form-text">
-                <label>Username</label>
-                <input type="text">
+    <div class="background-img">
+    </div>
+    <div class="login-page">
+        <div class="form">
+            <div class="logo-login">
+               <a href="/index"> <img src="./images/Logo 2.jpg" alt=""></a>
             </div>
-            <div class="form-text">
-                <label>Password</label>
-                <input type="password">
-            </div>
-            <button>Đăng Nhập</button>
+        <form class="register-form">
+            <h2>BECOME A TAP NUMBER</h2>
+            <input type="text" placeholder="Username"/>
+            <input type="password" placeholder="Password"/>
+            <input type="text" placeholder="Email address"/>
+            <button>create</button>
+            <p class="message">Already registered? <a class="Log-In" href="#">Sign In</a></p>
+        </form>
+        <form class="login-form">
+            <h2>SIGN IN<style></style></h2>
+             <input type="text"placeholder="UserName" id="user"/><br>
+             <input type="password" placeholder="Password" id="password"/><br> 
+             <input type="button" id ="a1" value= "Login" onkeypress="login()" onclick="login()"/>
+            <p class="message">Not registered? <a class="create-account" href="#">Create an account</a></p>
+        </form>
+        </div>
+    </div>
+    <script src="../js/login.js"></script>
+</body>
+<!-- <body>
+
+            <h1>Login</h1>
+           User Name: <input type="text" id="user"/><br>
+           Password : <input type="password" id="password"/><br> 
+            <input type="button" value= "Login" onclick="login()"/>
             <span>Bạn chưa có tài khoản? Đăng ký <a href="">Tại Đây</a></span>
         </form>
     </div>
-</body>
+</body> -->
 </html>
