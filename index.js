@@ -2,9 +2,10 @@ var express = require('express');
 const sql = require('./sql');
 const login = require('./login');
 const path = require('path');
+const bodyParser = require('body-parser');
+
 var app = express();
 app.use(express.static(path.join(__dirname, 'public')));
-const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
  
 
@@ -24,6 +25,7 @@ app.get('/', function (req, res) {
         res.send(result);
     });
 });
+
 app.post('/search', function (req, res) {
     var search = req.body.search;
     sql.executeSQL(`select * from SanPham where Name like '%${search}%' `, (recordset) => {
@@ -45,6 +47,7 @@ app.post('/search', function (req, res) {
         }
     });
 });
+
 app.post('/getProducByCatId', function (req, res) {
     var catId = req.body.catId;
     sql.executeSQL(`select * from SanPham where catId='${catId}' order by pindex`, (recordset) => {
@@ -66,6 +69,7 @@ app.post('/getProducByCatId', function (req, res) {
         }
     });
 });
+
 app.get('/index', function (req, res) {
     res.sendfile(__dirname+"/index.html");
 });
@@ -91,7 +95,6 @@ app.get('/login', function (req, res) {
     res.sendfile(__dirname+"/login.html");
 });
 
-
 app.get('/admin', function (req, res) {
     res.sendfile(__dirname+"/admin.html");
 });
@@ -101,6 +104,7 @@ app.get('/blogs', function (req, res) {
 app.get('/contact', function (req, res) {
     res.sendfile(__dirname+"/contact.html");
 });
-var server = app.listen(3000, function () {
+
+app.listen(3000, function () {
     console.log('Server is running..');
 });
