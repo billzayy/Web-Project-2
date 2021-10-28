@@ -10,6 +10,15 @@
     <link rel="stylesheet" href="../Bootstrap/owl.theme.default.min.css">
     <link rel="stylesheet" href="../css/blogs.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.get("getblogs/", function(data, status){
+              $('#conten').html(data);
+            });
+        });
+ 
+    </script>
+    
    
 </head>
 
@@ -42,12 +51,19 @@
             </div>
         </div>
     </header>
-
-    
-
     <section class="cartegory">
-        
-    </section>
+       
+        <div class="row">
+           
+                <div id="conten" ></div>
+
+
+            </div>
+            
+
+
+
+</section>
     <!-- -------------------------Footer---------------- -->
     <footer>
         <div class="container">
