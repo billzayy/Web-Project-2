@@ -5,22 +5,22 @@ const path = require('path');
 const bodyParser = require('body-parser');
 
 var app = express();
+
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: true }));
- 
-
  
 app.get('/', function (req, res) {
     sql.executeSQL("select * from SanPham order by pindex", (recordset) => {
         var result = "";
         recordset.recordsets[0].forEach(row => {
-            result += `
-                <div style='Display:inline-block ;width:350px;float:right; '>
-                    <a href="/detail/${row['id']}"><img style="width:320px" src='/images/${row['Image']}'/></a>
-                    <div style="text-align:center;line-height: 30px;"><b>${row['Name']}</b></div>
-                    <div style="text-align:center"><span style="color:balck"> ${row['Gia']}$</span> </div>
+            result += 
+            `
+                <div style='Display:inline-block;margin: 10px;'>
+                    <a href="/detail/${row["id"]}"><img style="width:250px" src='/images/${row["Image"]}'/></a>
+                    <div style="text-align:center;line-height: 30px;"><b>${row["Name"]}</b></div>
+                    <div style="text-align:center"><span style="color:black"> ${row["Gia"]}$</span> </div>
                  </div>
-                `;
+            `;
         });
         res.send(result);
     });
@@ -71,7 +71,7 @@ app.post('/getProducByCatId', function (req, res) {
 });
 
 app.get('/index', function (req, res) {
-    res.sendfile(__dirname+"/index.html");
+    res.sendFile(__dirname+"/index.html");
 });
  
 app.get('/getDetailData/:id', function (req, res) {
@@ -82,7 +82,7 @@ app.get('/getDetailData/:id', function (req, res) {
 });
  
 app.get('/detail/:id', function (req, res) {
-    res.sendfile(__dirname+"/detail.html");
+    res.sendFile(__dirname+"/detail.html");
 });
 
 app.post('/getlogin', function (req, res) {
@@ -92,17 +92,17 @@ app.post('/getlogin', function (req, res) {
 });
 
 app.get('/login', function (req, res) {
-    res.sendfile(__dirname+"/login.html");
+    res.sendFile(__dirname+"/login.html");
 });
 
 app.get('/admin', function (req, res) {
-    res.sendfile(__dirname+"/admin.html");
+    res.sendFile(__dirname+"/admin.html");
 });
 app.get('/blogs', function (req, res) {
-    res.sendfile(__dirname+"/blogs.html");
+    res.sendFile(__dirname+"/blogs.html");
 });
 app.get('/contact', function (req, res) {
-    res.sendfile(__dirname+"/contact.html");
+    res.sendFile(__dirname+"/contact.html");
 });
 
 app.listen(3000, function () {

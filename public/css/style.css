@@ -72,13 +72,13 @@ ul {
     cursor: pointer;
 }
 header {
-position: fixed;
-height: 80px;
-z-index: 1000;
-width: 100vw;
-top: 0;
-left: 0;
-background-color: white;
+    position: fixed;
+    height: 80px;
+    z-index: 1000;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    background-color: white;
 }
 .slider {
     margin-top: 80px;
@@ -116,38 +116,50 @@ a{
 .cartegory {
     padding: 100px 0 0;
 }
+
 .cartegory-left {
-    width: 40%;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    /* border: 1px solid black; */
 }
 .cartegory-left ul li {
     padding: 12px 0;
-}
-.cartegory-left ul li {
     color: black;
     font-size: 16px;
     font-weight: bold;
     font-family: var(--main-text-font);
     cursor: pointer;
-    
+}
+.cartegory-left ul {
+    display: flex;
+    width: 100%;
 }
 
-.cartegory-left-li ul{
-    display: none;
-    
+.cartegory-left-li{
+    width: 100%;
+    border: 1px solid lightgray;
+    text-align: center;
 }
-.cartegory-left-li.block ul {
-    display: block;
+.cartegory-left a{
+    padding: 12px 0;
+    color: black;
+    font-size: 14.5px;
+    font-weight: bold;
+    font-family: var(--main-text-font);
+    cursor: pointer;
 }
-.cartegory-left ul li ul li a {
-    color: #333333;
-    font-size: 22px;
-    
+#content{
+    padding: 10px 20px;
+    margin : 10px;
+    /* border: 1px solid black; */
+    width: 100%;
+    text-align: center;
 }
 
  /* -----------------------footer-------------------- */
 footer {
     background-color: #e4e4e4;
-    margin-top: 100px;
     padding: 100px 0 10px;
 }
 footer p {
