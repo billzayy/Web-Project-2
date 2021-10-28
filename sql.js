@@ -5,7 +5,7 @@ function executeSQL(strSQl,cb) {
       user: "sa",
       password: "tuanhdangiu", 
       server: "BILL\\BILLZAY",
-      database: "ClothingWeb_2",
+      database: "Clothing_Web",
       driver: "msnodesqlv8",
     };
 
