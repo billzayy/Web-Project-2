@@ -293,6 +293,15 @@ a{
     font-size: 22px;
 }
 
+/* ---------------------Cartegory------------------------------------- */
+.cartegory {
+    padding: 100px 0 0;
+}
+.cartegory-left {
+    width: 40%;
+}
+
+
  /* -----------------------footer-------------------- */
 footer {
     background-color: #e4e4e4;

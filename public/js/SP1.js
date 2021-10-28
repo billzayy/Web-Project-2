@@ -71,6 +71,3 @@ if(butTon){
     document.querySelector(".product-content-right-bottom-content-big").classList.toggle("activeB")
   })
 }
-                        
-                        
-                                                
