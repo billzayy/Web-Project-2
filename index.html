@@ -8,46 +8,46 @@
     <script src="https://kit.fontawesome.com/54f0cb7e4a.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./Bootstrap/owl.carousel.min.css">
     <link rel="stylesheet" href="./Bootstrap/owl.theme.default.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script>
-$(document).ready(function(){
-    $.get("http://localhost:3000/", function(data, status){
-      $('#content').html(data);
-    });
-     
-    var user = localStorage.getItem("user");
-       if(user === null || user === undefined){
-           $("#user").html("");
-       }
-       else{
-           var objUser = JSON.parse(user);
-           $("#user").html("Xin chao:"+objUser[0].Name);
-       }
-});
- 
-function search(event){
-  if (event.keyCode === 13) {
-   $.post("http://localhost:3000/search",{
-     search: $('#search').val()
-   }, function(data, status){
-      $('#content').html(data); 
-    });
-  }
-}
- 
-function menuClick(productType){
- $.post("http://localhost:3000/getProducByCatId",{
-     catId: productType
-   }, function(data, status){
-      $('#content').html(data);
-    });
-}
- function logout(){
-     localStorage.removeItem("user");
-     window.location.href="./login";
-     
- }
-</script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.get("http://localhost:3000/", function(data, status){
+                $('#content').html(data);
+            });
+            
+            var user = localStorage.getItem("user");
+            if(user === null || user === undefined){
+                $("#user").html("");
+            }
+            else{
+                var objUser = JSON.parse(user);
+                $("#user").html("Xin chao:"+objUser[0].Name);
+            }
+        });
+        
+        function search(event){
+        if (event.keyCode === 13) {
+        $.post("http://localhost:3000/search",{
+            search: $('#search').val()
+        }, function(data, status){
+            $('#content').html(data); 
+            });
+        }
+        }
+        
+        function menuClick(productType){
+        $.post("http://localhost:3000/getProducByCatId",{
+            catId: productType
+        }, function(data, status){
+            $('#content').html(data);
+            });
+        }
+        function logout(){
+            localStorage.removeItem("user");
+            window.location.href="./login";
+            
+        }
+    </script>
 </head>
 <body> 
     <!--------------------------------header----------------  -->
@@ -76,7 +76,7 @@ function menuClick(productType){
                     <a href="./login"><img src="./images/user.png" alt=""></a>
                     <div>
                         <span id="user"></span>
-                        <input type="button" value="loguot" onclick="logout()"/>
+                        <input type="button" value="Log Out" onclick="logout()"/>
                     </div>
                 </div>
                
@@ -86,24 +86,24 @@ function menuClick(productType){
     </header>
 
 <section class="cartegory">
-       
-            <div class="row">
-                <div class="cartegory-left">
-                    <ul>
-                        
-                        <li class="cartegory-left-li"><span onclick="menuClick('2')">Giày</span>
-                        </li>
-                        <li class="cartegory-left-li">
-                            <span onclick="menuClick('1')">Áo</span>
-                        </li>
-                        <li class="cartegory-left-li"><a href="">BỘ SƯU TẬP</a></li>
-                    </ul>
-
-                </div>
-                <div id="content" ></div>
-
-
-
+    <div class="row">
+        <div class="cartegory-left">
+            <ul>
+                <li class="cartegory-left-li"onclick="menuClick('2')"><span >Giày</span>
+                </li>
+                <li class="cartegory-left-li" onclick="menuClick('1')">
+                    <span >Áo</span>
+                </li>
+                <a href="" class="cartegory-left-li">BỘ SƯU TẬP</a>
+            </ul>
+        </div>
+    <div id="content">
+        <!-- <div style='Display:block ;width:300px;float:left; '>
+            <a href="/detail/${row['id']}"><img style="width:300px" src='/images/${row[' Image']}' /></a>
+            <div style="text-align:center;line-height: 30px;"><b>${row['Name']}</b></div>
+            <div style="text-align:center"><span style="color:black"> ${row['Gia']}$</span> </div>
+        </div> -->
+    </div>
 </section>
   <!-- -------------------------Footer---------------- -->
   <footer>

@@ -7,5 +7,5 @@ function login(user, password, cb) {
 }
  
 module.exports = {
-login: login
+    login: login
 }

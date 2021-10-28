@@ -6,32 +6,37 @@ const search = require('./search');
 const  blogs =  require('./Blogs');
 const path = require('path');
 
-var app = express();
-app.use(express.static(path.join(__dirname, 'public')));
 const bodyParser = require('body-parser');
-app.use(bodyParser.urlencoded({ extended: true }));
- 
 
+
+var app = express();
+
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(bodyParser.urlencoded({ extended: true }));
  
 app.get('/', function (req, res) {
     sql.executeSQL("select * from SanPham order by pindex", (recordset) => {
         var result = "";
         recordset.recordsets[0].forEach(row => {
-            result += `
-                <div style='Display:inline-block ;width:350px;float:right; '>
-                    <a href="/detail/${row['id']}"><img style="width:320px" src='/images/${row['Image']}'/></a>
-                    <div style="text-align:center;line-height: 30px;"><b>${row['Name']}</b></div>
-                    <div style="text-align:center"><span style="color:balck"> ${row['Gia']}$</span> </div>
-                    
+
+            result += 
+            `
+                <div style='Display:inline-block;margin: 10px;'>
+                    <a href="/detail/${row["id"]}"><img style="width:250px" src='/images/${row["Image"]}'/></a>
+                    <div style="text-align:center;line-height: 30px;"><b>${row["Name"]}</b></div>
+                    <div style="text-align:center"><span style="color:black"> ${row["Gia"]}$</span> </div>
+
                  </div>
-                `;
+            `;
         });
         res.send(result);
     });
 });
+
 app.post('/search', function (req, res) {
    search.search(req.body.search, res);
 });
+
 app.post('/getProducByCatId', function (req, res) {
     var catId = req.body.catId;
     sql.executeSQL(`select * from SanPham where catId='${catId}' order by pindex`, (recordset) => {
@@ -54,6 +59,7 @@ app.post('/getProducByCatId', function (req, res) {
         }
     });
 });
+
 app.get('/index', function (req, res) {
     res.sendFile(__dirname+"/index.html");
 });
@@ -82,6 +88,7 @@ app.post('/getlogin', function (req, res) {
 app.get('/login', function (req, res) {
     res.sendFile(__dirname+"/login.html");
 });
+
 app.get('/admin', function (req, res) {
     res.sendFile(__dirname+"/admin.html");
 });
@@ -95,6 +102,7 @@ app.get('/getblogs', function (req, res) {
 app.get('/contact', function (req, res) {
     res.sendFile(__dirname+"/contact.html");
 });
-var server = app.listen(3000, function () {
+
+app.listen(3000, function () {
     console.log('Server is running..');
 });
