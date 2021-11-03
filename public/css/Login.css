@@ -122,9 +122,22 @@ body,html{
     height: 100%;
     opacity: 0.7;
 }
-#a1{
+#a1,#a2{
     width: 30%;
     border-radius: 15%;
     background: rgba(27, 29, 116, 0.932);
     color: #FFFFFF;
+    text-transform: uppercase;
+    transition: background-color 0.5s;
+}
+#a1:hover{
+    cursor: pointer;
+    background-color: yellow;
+    color: rgba(27, 29, 116, 0.932);
+}
+
+#a2:hover{
+    cursor: pointer;
+    background-color: yellow;
+    color: rgba(27, 29, 116, 0.932);
 }

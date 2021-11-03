@@ -22,10 +22,9 @@ app.get('/', function (req, res) {
             result += 
             `
                 <div style='Display:inline-block;margin: 10px;'>
-                    <a href="/detail/${row["id"]}"><img style="width:250px" src='/images/${row["Image"]}'/></a>
+                    <a href="/detail/${row["id"]}"><img style="width:300px" src='/images/${row["Image"]}'/></a>
                     <div style="text-align:center;line-height: 30px;"><b>${row["Name"]}</b></div>
-                    <div style="text-align:center"><span style="color:black"> ${row["Gia"]}$</span> </div>
-
+                    <div style="text-align:center"><span style="color:black"> ${row["Gia"]}$</span></div>
                  </div>
             `;
         });
@@ -54,7 +53,7 @@ app.post('/getProducByCatId', function (req, res) {
                     
                  </div>
                 `;
-        });
+            });
         res.send(result);
         }
     });
@@ -76,7 +75,7 @@ app.get('/detail/:id', function (req, res) {
 });
 app.get("/getImage/:id", function (req, res) {
     getImage.getImage(req,res);
-  });
+});
 
 
 app.post('/getlogin', function (req, res) {
@@ -88,6 +87,16 @@ app.post('/getlogin', function (req, res) {
 app.get('/login', function (req, res) {
     res.sendFile(__dirname+"/login.html");
 });
+
+app.get('/getsignUp/:username/:password/:email', (req, res) => {
+    var userName = req.params['username'];
+    var password = req.params['password'];
+    var email = req.params['email'];
+    
+    login.signUp(userName, password, email, (user) => {
+        res.send(user);
+    })
+})
 
 app.get('/admin', function (req, res) {
     res.sendFile(__dirname+"/admin.html");
