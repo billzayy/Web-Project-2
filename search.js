@@ -16,7 +16,7 @@ function search(search, res){
                     <div style="text-align:center"><span style="color:red"> ${row['Gia']}$</span> </div>
                  </div>
                 `;
-        });
+            });
         res.send(result);
         }
     });
