@@ -5,7 +5,8 @@ function login(user, password, cb) {
         cb(recordset.recordsets[0]);
     })
 }
- 
+
+
 module.exports = {
     login: login
 }

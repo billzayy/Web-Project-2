@@ -8,16 +8,28 @@
     <script src="https://kit.fontawesome.com/54f0cb7e4a.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../Bootstrap/owl.carousel.min.css">
     <link rel="stylesheet" href="../Bootstrap/owl.theme.default.min.css">
-    <link rel="stylesheet" href="../css/blogs.css">
+    <link rel="stylesheet" href="../css/shopping.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
+ 
+        function getShoppingCard() {
+            if (localStorage.getItem("shoppingcard") == null || localStorage.getItem("shoppingcard") == undefined) {
+                $('#content').html("Vui long chon san pham");
+            }
+            else {
+                $.post("/getShoppingCard", {
+                    arrProductId: localStorage.getItem("shoppingcard").replace('[', '(').replace(']', ')')
+                }, function (data, status) {
+                    $('#content').html(data);
+                });
+            }
+ 
+        }
+ 
         $(document).ready(function(){
-            $.get("getblogs/", function(data, status){
-              $('#conten').html(data);
-            });
+            getShoppingCard() ;
         });
-
-        
  
     </script>
     
@@ -55,13 +67,9 @@
     </header>
     <section class="cartegory">
        
-        <div class="row">
-           
-                <div id="conten" ></div>
-
-
-            </div>
-            
+       
+        <h1>Shopping Card</h1>
+        <div id="content">
 
 
 

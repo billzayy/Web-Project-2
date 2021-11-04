@@ -3,9 +3,9 @@ const sql = require('mssql/msnodesqlv8');
 function executeSQL(strSQl,cb) {
     var config = {
       user: "sa",
-      password: "tuanhdangiu", 
-      server: "BILL\\BILLZAY",
-      database: "ClothingWeb_2",
+      password: "0938032907", 
+      server: "LAPTOP-G4SPSED2\\XUANANH",
+      database: "wedBanHang",
       driver: "msnodesqlv8",
     };
 

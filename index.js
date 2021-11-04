@@ -4,7 +4,9 @@ const login = require('./login');
 const  getImage =  require('./SP');
 const search = require('./search');
 const  blogs =  require('./Blogs');
+const shoppingcard = require('./shopping');
 const path = require('path');
+
 
 const bodyParser = require('body-parser');
 
@@ -22,10 +24,10 @@ app.get('/', function (req, res) {
             result += 
             `
                 <div style='Display:inline-block;margin: 10px;'>
-                    <a href="/detail/${row["id"]}"><img style="width:250px" src='/images/${row["Image"]}'/></a>
+                    <a href="/detail/${row["id"]}"><img style="width:300px" src='/images/${row["Image"]}'/></a>
                     <div style="text-align:center;line-height: 30px;"><b>${row["Name"]}</b></div>
                     <div style="text-align:center"><span style="color:black"> ${row["Gia"]}$</span> </div>
-
+                    <div style="text-align:center"><input type="button" value="thêm vào giỏ hàng" onclick="addToCard(${row['id']})"/></div>
                  </div>
             `;
         });
@@ -51,6 +53,7 @@ app.post('/getProducByCatId', function (req, res) {
                     <a href="/detail/${row['id']}"><img style="width:300px" src='/images/${row['Image']}'/></a>
                     <div style="text-align:center;line-height: 30px;"><b>${row['Name']}</b></div>
                     <div style="text-align:center"><span style="color:red"> ${row['Gia']}$</span> </div>
+                   
                     
                  </div>
                 `;
@@ -82,7 +85,9 @@ app.get("/getImage/:id", function (req, res) {
 app.post('/getlogin', function (req, res) {
     login.login(req.body.user, req.body.password, (user) =>{
         res.send(user);
+    
     })
+    
 });
 
 app.get('/login', function (req, res) {
@@ -99,10 +104,20 @@ app.get('/getblogs', function (req, res) {
    blogs.blogs(req, res);
 });
 
+
 app.get('/contact', function (req, res) {
     res.sendFile(__dirname+"/contact.html");
 });
 
+app.post('/getShoppingCard', function (req, res) {
+  shoppingcard.getShoppingCard(req, res);
+});
+app.get('/shopping-card', function (req, res) {
+    res.sendFile(__dirname+"/shopping.html");
+});
+
+    
+    
 app.listen(3000, function () {
     console.log('Server is running..');
 });
