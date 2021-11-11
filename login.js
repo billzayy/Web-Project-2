@@ -7,8 +7,9 @@ function login(user, password, cb) {
 }
  
 function signUp(user,password, email,cb) {
-    sql.executeSQL(`Insert into Login values ('${user}','${password}','${email}')`, (recordset) => {
-        cb(recordset.recordsets[0]);
+    sql.executeSQL(`Insert into Login(Name,Password,Email) values ('${user}','${password}','${email}')`, (recordset) => {
+        console.log(recordset);
+        cb(recordset.rowsAffected[0]);
     })
 }
 

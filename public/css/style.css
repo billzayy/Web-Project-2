@@ -111,6 +111,9 @@ a{
     display: flex;
     flex-wrap: wrap;
 }
+#hello_text{
+    display: block;
+}
 
 /* ---------------------Cartegory------------------------------------- */
 .cartegory {

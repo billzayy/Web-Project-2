@@ -10,14 +10,14 @@ function search(search, res){
         else {
             recordset.recordsets[0].forEach(row => {
             result += `
-            <div style='Display: inline-block ;width:400px;float:left; '>
+                <div style='Display: inline-block ;width:400px;float:left; '>
                     <a href="/detail/${row['id']}"><img style="width:300px" src='/images/${row['Image']}'/></a>
                     <div style="text-align:center;line-height: 30px;"><b>${row['Name']}</b></div>
                     <div style="text-align:center"><span style="color:red"> ${row['Gia']}$</span> </div>
                  </div>
                 `;
             });
-        res.send(result);
+            res.send(result);
         }
     });
  }

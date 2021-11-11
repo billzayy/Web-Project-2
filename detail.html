@@ -10,33 +10,7 @@
     <link rel="stylesheet" href="../Bootstrap/owl.theme.default.min.css">
     <link rel="stylesheet" href="../css/BST.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            var arr = window.location.href.split('/');
-            $.get("http://localhost:3000/getDetailData/" + arr[arr.length - 1],
-                function (data, status) {
-                console.log(data)
-                $("#name").html(data.Name);
-                $("#Gia").html(data.Gia + '$');
-                $("#img").attr("src", "../images/" + data.Image);
-                $("#mota").html(data.Mota);
-            });
-            var user = localStorage.getItem("user");
-            if(user === null || user === undefined){
-                $("#user").html("");
-            }
-            else{
-                var objUser = JSON.parse(user);
-                $("#user").html("Xin chao:"+objUser[0].Name);
-            }
-        });
-        $(document).ready(function () {
-            var arr = window.location.href.split('/');
-            $.get("http://localhost:3000/getImage/" + arr[arr.length - 1], function (data, status) {
-                $('#smallimg').html(data);
-            });
-        });
-    </script>
+    <script src = "../jquery/detailJquery.js"></script>
 </head>
 
 <body>
@@ -80,7 +54,7 @@
                             <img id="img" />
                         </div>
                         <div class="product-content-left-small-img">
-                            <div id="smallimg"></div>
+                            <div id="smalling"></div>
                         </div>
                     </div>
                     <div class="product-content-right">
@@ -106,7 +80,7 @@
                         </div>
                         <p style="color: red;">Vui lòng chọn size</p>
                         <div class="product-content-right-product-button">
-                            <button><i class="fas fa-shopping-cart"></i> <p>MUA HÀNG</p></button>
+                            <button id = "test"><i class="fas fa-shopping-cart"></i> <p>MUA HÀNG</p></button>
                             <button><p>TÌM TẠI CỬA HÀNG</p></button>
                         </div>
                         <div class="product-content-right-product-icon">
@@ -212,7 +186,7 @@
     </footer>
 
    
-<script src="../js/SP1.js"></script>
+<!-- <script src="../js/SP1.js"></script> -->
 </body>
 
 </html>

@@ -1,9 +1,9 @@
-﻿create database Clothing_Web
+﻿--create database Clothing_Web
 use Clothing_Web;
 go
 select * From SanPham
-
 go
+
 Insert Into SanPham( [Image], [Name], [Gia], [Catid], [pIndex], [Mota])Values
 ( 'Jordan Air NFH 1.png', 'Jordan Air NFH', 8.000000, 1, 1, 'Day la doi giay cao cap den tu Nike'),
 ( 'Jordan One Take 1.png', 'Jordan One Take', 7.000000, 1, 1, 'Day la doi giay cao cap den tu Nike'),
@@ -69,15 +69,23 @@ INSERT INTO ImageS( [id], [Path]) Values
 ( 15, 'PSG 4.png');
 
 go
-delete from Blogs
+
 INSERT INTO Blogs VALUES
 ( 'Xu Huong.jfif', 'Considered a modern fashion trend along with an extremely creative combination has produced a new fashion set.'),
 ('Xu Huong.jfif', 'Recently, fashion styles have emerged that combine hoodies and jackets with a classic but no less fashionable style'),
 ( 'Xu Huong.jfif', 'A Polo shirt with a vest gives the wearer a sense of luxury and elegance');
 go
+
 INSERT INTO Login VALUES
 ('phanletuan','20102002','tuan.207pm27538@vanlanguni.vn'),
 ('nguyenxuananh','09012002','anh.207pm47612@vanlanguni.vn'),
 ('buixuanphuoc','14012002','phuoc.207pm27490@vanlanguni.vn');
+go
 
 select * From SanPham
+select * From Blogs
+select * From ImageS
+select * From Login
+
+alter table Login
+Add Author Nvarchar(50)	NULL
