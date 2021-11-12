@@ -1,91 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Login</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="../css/login.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script>
-      function login() {
-        var arr = window.location.href.split("/");
-        $.post(
-          "/getlogin",
-          {
-            user: $("#user").val(),
-            password: $("#password").val(),
-          },
-          function (data, status) {
-            // alert(JSON.stringify(data));
-            if (data.length === 0) {
-              alert("login fail");
-            } else {
-              window.location.href = "./index";
-              localStorage.setItem("user", JSON.stringify(data));
-            }
-          }
-        );
-      }
+<head>
+  <title>Login</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="../css/login.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="./jquery/loginJquery.js"></script>
+  <title>from-login</title>
+</head>
 
-      function signUp(){
-        var arr = window.location.href.split('/');
-        var userName = $("#signup_username").val();
-        var password = $("#signup_password").val();
-        var email = $("#signup_email").val();
-
-        $.get(`/getsignUp/${userName}/${password}/${email}`, (data,status) => {
-            alert(JSON.stringify(data));
-            if (data.length === 0) {
-                // alert("Sign up fail");
-            } else {
-                window.location.href = "./index";
-                localStorage.setItem("signup_username", JSON.stringify(data));
-                alet("Sign Up Successful");
-            }
-        })  
-      }
-    </script>
-    <title>from-login</title>
-  </head>
-  <body>
-    <div class="background-img"></div>
-    <div class="login-page">
-      <div class="form">
-        <div class="logo-login">
-          <a href="/index"> <img src="./images/Logo 2.jpg" alt="" /></a>
-        </div>
-        <form class="register-form">
-          <h2>BECOME A TAP MEMBER</h2>
-          <input type="text" placeholder="Username" id ="signup_username"/>
-          <input type="password" placeholder="Password" id = "signup_password"/>
-          <input type="text" placeholder="Email address" id = "signup_email"/>
-          <input type="button" id="a2" value="Create" onkeypress="signUp()" onclick="signUp()" />
-          <p class="message">
-            Already registered? <a class="Log-In" href="#">Sign In</a>
-          </p>
-        </form>
-        <form class="login-form">
-          <h2>SIGN IN<style></style></h2>
-          <input type="text" placeholder="UserName" id="user" /><br />
-          <input type="password" placeholder="Password" id="password" /><br />
-          <input
-            type="button"
-            id="a1"
-            value="Login"
-            onkeypress="login()"
-            onclick="login()"
-          />
-          <p class="message">
-            Not registered?
-            <a class="create-account" href="#">Create an account</a>
-          </p>
-        </form>
+<body>
+  <div class="background-img"></div>
+  <div class="login-page">
+    <div class="form">
+      <div class="logo-login">
+        <a href="/index"> <img src="./images/Logo 2.jpg" alt="" /></a>
       </div>
+      <form class="register-form">
+        <h2>BECOME A TAP MEMBER</h2>
+        <input type="text" placeholder="Username" id="signup_username" />
+        <input type="password" placeholder="Password" id="signup_password" />
+        <input type="text" placeholder="Email address" id="signup_email" />
+        <input type="button" id="a2" value="Create"/>
+        <p class="message">
+          Already registered? <a class="Log-In" href="#">Sign In</a>
+        </p>
+      </form>
+      <form class="login-form">
+        <h2>LOG IN<style></style>
+        </h2>
+        <input type="text" placeholder="UserName" id="user" /><br />
+        <input type="password" placeholder="Password" id="password" /><br />
+        <input type="button" id="a1" value="Login"  />
+        <p class="message">
+          Not registered?
+          <a class="create-account" href="#">Create an account</a>
+        </p>
+      </form>
     </div>
-    <script src="../js/loginJquery.js"></script>
-  </body>
-  <!-- <body>
+  </div>
+  <script src="../js/loginJquery.js"></script>
+</body>
+<!-- <body>
 
             <h1>Login</h1>
            User Name: <input type="text" id="user"/><br>
@@ -95,4 +52,5 @@
         </form>
     </div>
 </body> -->
+
 </html>
