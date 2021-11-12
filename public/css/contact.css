@@ -332,3 +332,50 @@ footer p {
     width: 150px;
 }
 /* ------------ */               
+
+
+body{
+    background-color: whitesmoke;
+}
+.col-9{
+    width: 40%;
+    margin: 200px auto;
+    ;
+}
+.form-row{
+    display: flex;
+    padding: 10px;
+}
+.col-3{
+    width: 10%;
+}
+
+.col-6{
+    width: 85%;
+    border: 1px solid;
+    padding: 5px;
+    margin-left: 10%;
+}
+
+.col-6 input , .col-6 textarea{
+    border: none;
+    width: 100%;
+}
+
+.col-6 textarea{
+    resize: none;
+}
+
+.sbt-btn{
+    float: right;
+    padding: 10px;
+    margin: 10px;
+}
+
+.col-9 h3{
+    padding: 20px 10px;
+}
+
+
+
+
