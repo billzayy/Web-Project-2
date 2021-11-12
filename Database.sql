@@ -88,4 +88,4 @@ select * From ImageS
 select * From Login
 
 alter table Login
-Add Author Nvarchar(50)	NULL
+Add Author Nvarchar(50)	NULL DEFAULT 'Client'
