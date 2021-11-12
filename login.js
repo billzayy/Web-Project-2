@@ -6,7 +6,15 @@ function login(user, password, cb) {
     })
 }
 
+ 
+function signUp(user,password, email,cb) {
+    sql.executeSQL(`Insert into Login values ('${user}','${password}','${email}')`, (recordset) => {
+        cb(recordset.recordsets[0]);
+    })
+}
+
 
 module.exports = {
-    login: login
+    login: login,
+    signUp:signUp
 }

@@ -69,6 +69,7 @@
              window.location.href= "/shopping-card"
          }
     </script>
+    <title>Index Page</title>
 </head>
 <body> 
     <!--------------------------------header----------------  -->
@@ -110,14 +111,16 @@
     <div class="row">
         <div class="cartegory-left">
             <ul>
-                <li class="cartegory-left-li"onclick="menuClick('1')"><span >Giày</span>
+                <li class="cartegory-left-li cartegory-shoes"onclick="menuClick('1')">
+                    <span >Giày</span>
                 </li>
-                <li class="cartegory-left-li" onclick="menuClick('2')">
+                <li class="cartegory-left-li cartegory-shirt" onclick="menuClick('2')">
                     <span >Áo</span>
                 </li>
-                <li class="cartegory-left-li" onclick="menuClick('3')">
+                <li class="cartegory-left-li cartegory-paint" onclick="menuClick('3')">
                     <span >Quần</span>
                 </li>
+                <a href="" class="cartegory-left-li cartegory-BST">BỘ SƯU TẬP</a>
             </ul>
         </div>
     <div id="content">
@@ -165,7 +168,5 @@
         </div>
     </div>
 </footer>
-
-<script src="../js/BST.js"></script>
 </body>
 </html>

@@ -137,9 +137,10 @@ a{
 }
 
 .cartegory-left-li{
-    width: 100%;
-    border: 1px solid lightgray;
+    width: 50%;
+    border: 1px solid black;
     text-align: center;
+    background-color: lightgray;
 }
 .cartegory-left a{
     padding: 12px 0;
