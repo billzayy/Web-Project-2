@@ -52,7 +52,8 @@ ul {
     transition: all 0.3s ease;
 }
 .header-content-search {
-    width: 20%;
+    width: 15%;
+    margin-left: -5em;
 }
 .header-content-search input {
     border: none;
@@ -63,7 +64,7 @@ ul {
     cursor: pointer;
 }
 .header-content-icon {
-    width: 10%;
+    width: 15%;
     text-align: right;
 }
 .header-content-icon img {
@@ -114,7 +115,9 @@ a{
 #hello_text{
     display: block;
 }
-
+#LogOut_BTN{
+    width: 30%;
+}
 /* ---------------------Cartegory------------------------------------- */
 .cartegory {
     padding: 100px 0 0;
