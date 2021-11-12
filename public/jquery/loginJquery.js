@@ -12,7 +12,7 @@ $(document).ready(function () {
                 }
                 else if (data[0].Author === "Admin"){
                     window.location.href = "./admin";
-                    localStorage.setItem("user", JSON.stringify(data));
+                    // localStorage.setItem("user", JSON.stringify(data));
                 }
                 else {
                     window.location.href = "./index";
@@ -28,13 +28,12 @@ $(document).ready(function () {
         var email = $("#signup_email").val();
 
         $.get(`/getsignUp/${userName}/${password}/${email}`, (data, status) => {
-            // alert(JSON.stringify(data));
-            if (data === "1") {
-                alert("Sign up Successful");
+            // alert(data)
+            if (data == 0 || data === null) {
+                alert("This account already exists")
             } else {
-                window.location.href = "./index";
-                localStorage.setItem("signup_username", JSON.stringify(data));
-                alert("Sign Up Successful");
+                alert("Sign up Successful");
+                window.location.reload('./Login')
             }
         });
     });
