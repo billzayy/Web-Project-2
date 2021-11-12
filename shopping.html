@@ -6,32 +6,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/54f0cb7e4a.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./Bootstrap/owl.carousel.min.css">
-    <link rel="stylesheet" href="./Bootstrap/owl.theme.default.min.css">
-    <link rel="stylesheet" href="./css/blogs.css">
+    <link rel="stylesheet" href="../Bootstrap/owl.carousel.min.css">
+    <link rel="stylesheet" href="../Bootstrap/owl.theme.default.min.css">
+    <link rel="stylesheet" href="../css/shopping.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
-        $(document).ready(function(){
-            $.get("getblogs/", function(data, status){
-              $('#content').html(data);
-            });
-        });
-
-        function search(event) {
-                if (event.keyCode === 13) {
-                    $.post(
-                        "http://localhost:3000/search",
-                        {
-                            search: $("#search").val(),
-                        },
-                        function (data, status) {
-                            $("#content").html(data);
-                        }
-                    );
-                }
+ 
+        function getShoppingCard() {
+            if (localStorage.getItem("shoppingcard") == null || localStorage.getItem("shoppingcard") == undefined) {
+                $('#content').html("Vui long chon san pham");
             }
+            else {
+                $.post("/getShoppingCard", {
+                    arrProductId: localStorage.getItem("shoppingcard").replace('[', '(').replace(']', ')')
+                }, function (data, status) {
+                    $('#content').html(data);
+                });
+            }
+ 
+        }
+ 
+        $(document).ready(function(){
+            getShoppingCard() ;
+        });
+ 
     </script>
-    <script src = "./jquery/blogJquery.js"></script>
+    
+   
 </head>
 
 <body>
@@ -45,8 +47,9 @@
                 <div class="header-content-nav">
                     <ul>
                         <li><a href="/index">Trang Chủ</a></li>
-                        <li><a href="/index">Bộ Sưu Tập</a></li>
+                        <li><a href="#cartegory">Bộ Sưu Tập</a></li>
                         <li><a href="/blogs">Blogs</a></li>
+
                         <li><a href="/contact">Liện Hệ</a></li>
                     </ul>
                 </div>
@@ -63,9 +66,13 @@
         </div>
     </header>
     <section class="cartegory">
-        <div class="row">
-            <div id="content"></div>
-        </div>
+       
+       
+        <h1>Shopping Card</h1>
+        <div id="content">
+
+
+
 </section>
     <!-- -------------------------Footer---------------- -->
     <footer>
@@ -108,6 +115,8 @@
             </div>
         </div>
     </footer>
+
+   
 </body>
 
 </html>

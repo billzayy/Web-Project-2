@@ -5,6 +5,7 @@ function login(user, password, cb) {
         cb(recordset.recordsets[0]);
     })
 }
+
  
 function signUp(user, password, email, cb) {
     var name = "";
@@ -38,6 +39,7 @@ function signUp(user, password, email, cb) {
         }
     })
 }
+
 
 module.exports = {
     login: login,
