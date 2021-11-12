@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./Bootstrap/owl.theme.default.min.css">
   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<<<<<<< HEAD
     <script>
         $(document).ready(function(){
             $.get("http://localhost:3000/", function(data, status){
@@ -69,12 +70,16 @@
              window.location.href= "/shopping-card"
          }
     </script>
+=======
+    <script src = "./jquery/indexJquery.js"></script>
+>>>>>>> 9a3a8d8d12f7f5201fc9e26b6c72ee1a0eeaf2af
     <title>Index Page</title>
 </head>
-<body> 
+
+<body>
     <!--------------------------------header----------------  -->
     <header>
-      
+
         <div class="container">
             <div class="header-content row">
                 <div class="header-content-logo">
@@ -90,83 +95,92 @@
                     </ul>
                 </div>
                 <div class="header-content-search">
-                    <input type="text" placeholder="search" id="search" onkeypress="search(event)"/>
+                    <input type="text" placeholder="search" id="search" onkeypress="search(event)" />
                     <i class="fas fa-search"></i>
                 </div>
                 <div class="header-content-icon">
+<<<<<<< HEAD
                     <a href="./shopping-card"> <img src="./images/shopping.png" alt="" onclick="shoppingcard()"></a>
+=======
+                    <a href="./shoppingcart"><img src="./images/shopping.png" alt=""></a>
+>>>>>>> 9a3a8d8d12f7f5201fc9e26b6c72ee1a0eeaf2af
                     <a href="./login"><img src="./images/user.png" alt=""></a>
-                    <div>
-                        <span id="user"></span>
-                        <input type="button" value="Log Out" onclick="logout()"/>
+                    <div id ="hello_text">
+                        <p>Xin chào : <span id="user"></span></p>
                     </div>
+                    <!-- <input type="button" value="Log Out" onclick="logout()" /> -->
                 </div>
-               
+
             </div>
         </div>
-       
+
     </header>
 
-<section class="cartegory">
-    <div class="row">
-        <div class="cartegory-left">
-            <ul>
-                <li class="cartegory-left-li cartegory-shoes"onclick="menuClick('1')">
-                    <span >Giày</span>
-                </li>
-                <li class="cartegory-left-li cartegory-shirt" onclick="menuClick('2')">
-                    <span >Áo</span>
-                </li>
-                <li class="cartegory-left-li cartegory-paint" onclick="menuClick('3')">
-                    <span >Quần</span>
-                </li>
-                <a href="" class="cartegory-left-li cartegory-BST">BỘ SƯU TẬP</a>
-            </ul>
-        </div>
-    <div id="content">
-       
-    </div>
-</section>
-  <!-- -------------------------Footer---------------- -->
-  <footer>
-    <div class="container">
-        <div class="footer-content row">
-            <div class="footer-content-item">
-                <h3>THÔNG TIN</h3>
-                <p>CÔNG TY TNHH THỜI TRANG ABC</p>
-                <p>72 Hàm Nghi - Thanh Khê - Đà Nẵng</p>
-                <p>18002091</p>
-                <p>support@abc.vn</p>
-                <p>Mst: 0401223344</p>
+    <section class="cartegory">
+        <div class="row">
+            <div class="cartegory-left">
+                <ul>
+                    <li class="cartegory-left-li cartegory-shoes" onclick="menuClick('1')">
+                        <span>Giày</span>
+                    </li>
+                    <li class="cartegory-left-li cartegory-shirt" onclick="menuClick('2')">
+                        <span>Áo</span>
+                    </li>
+                    <li class="cartegory-left-li cartegory-paint" onclick="menuClick('3')">
+                        <span>Quần</span>
+                    </li>
+                    <a href="" class="cartegory-left-li cartegory-BST">BỘ SƯU TẬP</a>
+                </ul>
             </div>
-            <div class="footer-content-item">
-                <h3>LIÊN HỆ</h3>
-                <p>Giới thiệu</p>
-                <p>Liên hệ với chúng tôi</p>
-                <p>Tin tức</p>
-                <p>Hệ thống cửa hàng</p>
-                <p>Trợ giúp</p>
+            <div id="content">
+                <!-- <div style='Display:block ;width:300px;float:left; '>
+            <a href="/detail/${row['id']}"><img style="width:300px" src='/images/${row[' Image']}' /></a>
+            <div style="text-align:center;line-height: 30px;"><b>${row['Name']}</b></div>
+            <div style="text-align:center"><span style="color:black"> ${row['Gia']}$</span> </div>
+        </div> -->
             </div>
-            <div class="footer-content-item">
-                <h3>HỖ TRỢ KHÁCH HÀNG </h3>
-                <p>Hỏi đáp                </p>
-                <p>Đăng ký tài khoản</p>
-                <p>Chính sách giao hàng </p>
-                <p>Hệ thống cửa hàng</p>
-                <p>Chính sách đổi trả hoàn tiền</p>
+    </section>
+    <!-- -------------------------Footer---------------- -->
+    <footer>
+        <div class="container">
+            <div class="footer-content row">
+                <div class="footer-content-item">
+                    <h3>THÔNG TIN</h3>
+                    <p>CÔNG TY TNHH THỜI TRANG ABC</p>
+                    <p>72 Hàm Nghi - Thanh Khê - Đà Nẵng</p>
+                    <p>18002091</p>
+                    <p>support@abc.vn</p>
+                    <p>Mst: 0401223344</p>
+                </div>
+                <div class="footer-content-item">
+                    <h3>LIÊN HỆ</h3>
+                    <p>Giới thiệu</p>
+                    <p>Liên hệ với chúng tôi</p>
+                    <p>Tin tức</p>
+                    <p>Hệ thống cửa hàng</p>
+                    <p>Trợ giúp</p>
+                </div>
+                <div class="footer-content-item">
+                    <h3>HỖ TRỢ KHÁCH HÀNG </h3>
+                    <p>Hỏi đáp </p>
+                    <p>Đăng ký tài khoản</p>
+                    <p>Chính sách giao hàng </p>
+                    <p>Hệ thống cửa hàng</p>
+                    <p>Chính sách đổi trả hoàn tiền</p>
+                </div>
+            </div>
+            <div class="footer-content-social">
+                <i class="fab fa-facebook-square"></i>
+                <i class="fab fa-youtube"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-linkedin-in"></i>
+            </div>
+
+            <div class="footer-img">
+                <img src="./images/bocongthuong.png" alt="">
             </div>
         </div>
-        <div class="footer-content-social">
-            <i class="fab fa-facebook-square"></i>
-            <i class="fab fa-youtube"></i>
-            <i class="fab fa-twitter"></i>
-            <i class="fab fa-linkedin-in"></i>
-        </div>
-       
-        <div class="footer-img">
-            <img src="./images/bocongthuong.png" alt="">
-        </div>
-    </div>
-</footer>
+    </footer>
 </body>
+
 </html>

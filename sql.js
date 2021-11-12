@@ -1,6 +1,6 @@
 const sql = require('mssql/msnodesqlv8');
 
-function executeSQL(strSQl,cb) {
+function executeSQL(strSQl, cb) {
     var config = {
       user: "sa",
       password: "0938032907", 
@@ -10,13 +10,12 @@ function executeSQL(strSQl,cb) {
     };
 
     sql.connect(config, function (err, db) {
-       if (err) console.log(err);
-       var request = new sql.Request();
+        if (err) console.log(err);
+        var request = new sql.Request();
         request.query(strSQl, function (err, recordset) {
-        //    console.log(recordset);
-           if (err) console.log(err)
-           cb(recordset);
-       });
+            if (err) console.log(err)
+            cb(recordset);
+        });
 
     });
 }

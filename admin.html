@@ -6,8 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/admin.css">
     <script src="https://kit.fontawesome.com/54f0cb7e4a.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="ckeditor/ckeditor.js"></script>
     <script src="ckfinder/ckfinder.js"></script>
+    <script src="./jquery/adminJquery.js"></script>
     <title>Admin-TPA</title>
 </head>
 <body>
@@ -18,7 +20,7 @@
             <img id="logo" src="./images/logo 2.jpg" alt="">
         </div>
             <ul>
-                <li><a  href="#"> <img style="width:20px" src="./images/hi.png" alt="">Chào:  <span style="color:blueviolet; font-size:22px"><?php echo Session::get("admin_name") ?></span><span style="color: red; font-size:20px">❤</span></a>
+                <li><a  href="#"> <img style="width:20px" src="./images/hi.png" alt="">Chào:  <span style="color:blueviolet; font-size:22px" id = "admin_Name"></span><span style="color: red; font-size:20px">❤</span></a>
                 <li><a href="#"><img style="width:20px" src="./images/options.png" alt="">Danh Mục</a>
                     <ul>
                         <li><a href="">Danh sách</a></li>

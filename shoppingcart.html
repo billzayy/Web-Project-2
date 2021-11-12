@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,24 +7,9 @@
     <script src="https://kit.fontawesome.com/54f0cb7e4a.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../Bootstrap/owl.carousel.min.css">
     <link rel="stylesheet" href="../Bootstrap/owl.theme.default.min.css">
-    <link rel="stylesheet" href="../css/blogs.css">
+    <link rel="stylesheet" href="../css/shoppingcart.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<<<<<<< HEAD
-    <script>
-        $(document).ready(function(){
-            $.get("getblogs/", function(data, status){
-              $('#conten').html(data);
-            });
-        });
-
-        
- 
-    </script>
-    
-   
-=======
-    <script src = "./jquery/blogJquery.js"></script>
->>>>>>> 9a3a8d8d12f7f5201fc9e26b6c72ee1a0eeaf2af
+    <script src="./jquery/shoppingcartJquery.js"></script>
 </head>
 
 <body>
@@ -52,24 +36,14 @@
                 <div class="header-content-icon">
                     <img src="../images/shopping.png" alt="">
                     <img src="../images/user.png" alt="">
-
                 </div>
             </div>
         </div>
     </header>
-    <section class="cartegory">
-       
-        <div class="row">
-           
-                <div id="conten" ></div>
-
-
-            </div>
-            
-
-
-
-</section>
+    <!-- ------------------------ Section -------------- -->
+    <section>
+        <div id="content"></div>
+    </section>
     <!-- -------------------------Footer---------------- -->
     <footer>
         <div class="container">
@@ -111,8 +85,6 @@
             </div>
         </div>
     </footer>
-
-   
 </body>
 
 </html>
