@@ -9,6 +9,7 @@ const login = require('./login');
 const getImage = require('./getImage');
 const search = require('./search');
 const blogs = require('./Blogs');
+const admin = require('./admin')
 
 var app = express(); 
 
@@ -106,6 +107,11 @@ app.get('/getsignUp/:username/:password/:email', (req, res) => {
 app.get('/admin', function (req, res) {
     res.sendFile(__dirname + "/admin.html");
 });
+
+app.get('/getProductAdmin', (req, res) => {
+    admin.getProduct(req, res);
+})
+
 app.get('/blogs', function (req, res) {
     res.sendFile(__dirname + "/blogs.html");
 });

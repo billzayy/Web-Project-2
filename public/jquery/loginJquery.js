@@ -12,7 +12,7 @@ $(document).ready(function () {
                 }
                 else if (data[0].Author === "Admin"){
                     window.location.href = "./admin";
-                    // localStorage.setItem("user", JSON.stringify(data));
+                    localStorage.setItem("admin", JSON.stringify(data));
                 }
                 else {
                     window.location.href = "./index";
