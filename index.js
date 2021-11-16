@@ -10,6 +10,7 @@ const getImage = require('./getImage');
 const search = require('./search');
 const blogs = require('./Blogs');
 const shoppingCard = require('./shoppingcard');
+
 var app = express(); 
 
 app.use(express.static(path.join(__dirname, 'public')));
@@ -111,6 +112,7 @@ app.get('/admin', function (req, res) {
     res.sendFile(__dirname + "/admin.html");
 });
 //trang blogs
+
 app.get('/blogs', function (req, res) {
     res.sendFile(__dirname + "/blogs.html");
 });
