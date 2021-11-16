@@ -41,3 +41,17 @@ function logout() {
     localStorage.removeItem("user");
     window.location.href = "./login";
 }
+function addToCard(productId){
+    var arrProductId =  localStorage.getItem("shoppingcard");
+     if(arrProductId == null || arrProductId == undefined)  {
+       arrProductId = [productId];
+     }
+     else{
+       arrProductId = JSON.parse(arrProductId);
+       if(arrProductId.indexOf(productId) == -1){
+         arrProductId.push(productId);
+       }
+     }
+     arrProductId = JSON.stringify(arrProductId);
+     localStorage.setItem("shoppingcard",arrProductId);
+ }

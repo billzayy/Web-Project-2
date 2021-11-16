@@ -6,31 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/54f0cb7e4a.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./Bootstrap/owl.carousel.min.css">
-    <link rel="stylesheet" href="./Bootstrap/owl.theme.default.min.css">
-    <link rel="stylesheet" href="./css/blogs.css">
+    <link rel="stylesheet" href="../Bootstrap/owl.carousel.min.css">
+    <link rel="stylesheet" href="../Bootstrap/owl.theme.default.min.css">
+    <link rel="stylesheet" href="../css/blogs.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/footer.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script>
-        $(document).ready(function(){
-            $.get("getblogs/", function(data, status){
-              $('#content').html(data);
-            });
-        });
-
-        function search(event) {
-                if (event.keyCode === 13) {
-                    $.post(
-                        "http://localhost:3000/search",
-                        {
-                            search: $("#search").val(),
-                        },
-                        function (data, status) {
-                            $("#content").html(data);
-                        }
-                    );
-                }
-            }
-    </script>
     <script src = "./jquery/blogJquery.js"></script>
 </head>
 
@@ -68,14 +49,15 @@
         </div>
 </section>
     <!-- -------------------------Footer---------------- -->
-    <footer>
+      <!-- -------------------------Footer---------------- -->
+      <footer>
         <div class="container">
             <div class="footer-content row">
                 <div class="footer-content-item">
                     <h3>THÔNG TIN</h3>
-                    <p>CÔNG TY TNHH THỜI TRANG ABC</p>
-                    <p>72 Hàm Nghi - Thanh Khê - Đà Nẵng</p>
-                    <p>18002091</p>
+                    <p>Shop Thời Trang</p>
+                    <p>11 Quận 1  TPHCM</p>
+                    <p>18009999</p>
                     <p>support@abc.vn</p>
                     <p>Mst: 0401223344</p>
                 </div>
@@ -83,8 +65,6 @@
                     <h3>LIÊN HỆ</h3>
                     <p>Giới thiệu</p>
                     <p>Liên hệ với chúng tôi</p>
-                    <p>Tin tức</p>
-                    <p>Hệ thống cửa hàng</p>
                     <p>Trợ giúp</p>
                 </div>
                 <div class="footer-content-item">
@@ -104,7 +84,7 @@
             </div>
 
             <div class="footer-img">
-                <img src="../images/bocongthuong.png" alt="">
+                <img src="./images/bocongthuong.png" alt="">
             </div>
         </div>
     </footer>

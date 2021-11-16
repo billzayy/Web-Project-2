@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $.get("getblogs/", function (data, status) {
-        $("#conten").html(data);
+    $.get("getTypeProduct/", function (data, status) {
+        $("#content").html(data);
     });
 });

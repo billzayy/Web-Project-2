@@ -8,32 +8,12 @@
     <script src="https://kit.fontawesome.com/54f0cb7e4a.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../Bootstrap/owl.carousel.min.css">
     <link rel="stylesheet" href="../Bootstrap/owl.theme.default.min.css">
-    <link rel="stylesheet" href="../css/shopping.css">
+    <link rel="stylesheet" href="./css/shoppingcard.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/footer.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script>
- 
-        function getShoppingCard() {
-            if (localStorage.getItem("shoppingcard") == null || localStorage.getItem("shoppingcard") == undefined) {
-                $('#content').html("Vui long chon san pham");
-            }
-            else {
-                $.post("/getShoppingCard", {
-                    arrProductId: localStorage.getItem("shoppingcard").replace('[', '(').replace(']', ')')
-                }, function (data, status) {
-                    $('#content').html(data);
-                });
-            }
- 
-        }
- 
-        $(document).ready(function(){
-            getShoppingCard() ;
-        });
- 
-    </script>
-    
-   
+    <script src = "../jquery/shoppingcartJquery.js"></script>
+
 </head>
 
 <body>
@@ -59,30 +39,56 @@
                 </div>
                 <div class="header-content-icon">
                     <img src="../images/shopping.png" alt="">
-                    <img src="../images/user.png" alt="">
+                    <a href="./login"><img src="../images/user.png" alt=""></a>
+                    <div id ="hello_text">
+                        <p>Xin chào : <span id="user"></span></p>
+                    </div>
 
                 </div>
             </div>
         </div>
     </header>
-    <section class="cartegory">
-       
-       
-        <h1>Shopping Card</h1>
-        <div id="content">
+<!-- MAIN  -->
+<section>
+     <h2  >Giỏ hàng của bạn:</h2>
+      <div class="section_1">
+        <div class="content1_1">
+          <div id="content"></div>
+        </div>
+     <div class="content1_4">
+          <div class="content1_2">
+            <div id="content_info"></div> 
+             <div id="button12"><a href="#">MENU</a></div>
+          </div>
+          <div class="content1_3">
+
+          </div>
+        </div>
+      </div> 
+    
+
+  
+  </section>
+  <section>
+    <div id="pay">
+        <div > <h3>Tổng Tiền:<span id = "thanhToan">0$</span> </h3></div>
+     <!-- <input type="button" value="mua hang" onclick="buyProducts()"> -->
+     <button id="btn_pay"  onclick="buyProducts()"><i class="fas fa-shopping-cart"></i>   Mua Ngay</a></button>
+      <!-- nút xóa tất cả -->
+      <button id="btn_delAll"  onclick="delAll()">Xóa Tất Cả </button>
+  </div>
+  </section>
 
 
-
-</section>
     <!-- -------------------------Footer---------------- -->
     <footer>
         <div class="container">
             <div class="footer-content row">
                 <div class="footer-content-item">
                     <h3>THÔNG TIN</h3>
-                    <p>CÔNG TY TNHH THỜI TRANG ABC</p>
-                    <p>72 Hàm Nghi - Thanh Khê - Đà Nẵng</p>
-                    <p>18002091</p>
+                    <p>Shop Thời Trang</p>
+                    <p>11 Quận 1  TPHCM</p>
+                    <p>18009999</p>
                     <p>support@abc.vn</p>
                     <p>Mst: 0401223344</p>
                 </div>
@@ -90,8 +96,6 @@
                     <h3>LIÊN HỆ</h3>
                     <p>Giới thiệu</p>
                     <p>Liên hệ với chúng tôi</p>
-                    <p>Tin tức</p>
-                    <p>Hệ thống cửa hàng</p>
                     <p>Trợ giúp</p>
                 </div>
                 <div class="footer-content-item">
@@ -116,7 +120,7 @@
         </div>
     </footer>
 
-   
+ 
 </body>
 
 </html>
