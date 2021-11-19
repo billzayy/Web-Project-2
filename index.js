@@ -139,7 +139,10 @@ app.post('/buyProduct', async function (req, res) {
 app.get('/getInfo', function (req, res) {
     shoppingCard.info(req, res);
 });
-
+// homepage
+app.get('/homepage', function (req, res) {
+    res.sendFile(__dirname+"/homepage.html");
+})
 app.listen(3000, function () {
     console.log('Server is running..');
 });
