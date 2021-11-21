@@ -65,3 +65,32 @@ ul {
     width: 100%;
     text-align: center;
 }
+.product-content-right-product-button button {
+    width: 150px;
+    height: 40px;
+    display: block;
+    margin: 20px 0 12px;
+    transition: all 0.3s ease;
+    
+}
+.product-content-right-product-button button:first-child {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        background-color: #ffff;
+        border: 2px solid black;
+        cursor: pointer;
+}
+.product-content-right-product-button button:first-child:hover {
+    background-color: black;
+    color: #ffff;
+}
+.product-content-right-product-button button:last-child {
+    border:  2px solid black;
+    color:#BF8A49 ;
+    background-color: #ffff;
+    cursor: pointer;
+}
+.product-content-right-product-button{
+    margin-left: 80px;
+}

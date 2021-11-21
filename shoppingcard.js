@@ -38,7 +38,7 @@ async function buyProduct(id_KH, HD_TongTien, arrSP) {
 
 
 function info(req, res) {
-    sql.executeSQL("select top 1 TenKH , DiaChi, SDT, NgayBan from Login KH INNER JOIN HoaDon HD ON KH.id = HD.id_KH", (recordset) => {
+    sql.executeSQL("select top 1 TenKH , DiaChi, SDT, NgayBan from Login KH INNER JOIN HoaDon HD ON KH.id_Login = HD.id_KH", (recordset) => {
         var result = "";
         recordset.recordsets[0].forEach(row => {
             result += `

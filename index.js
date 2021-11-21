@@ -27,7 +27,6 @@ app.get('/', function (req, res) {
                     <a href="/detail/${row["id"]}"><img style="width:300px" src='/images/${row["Image"]}'/></a>
                     <div style="text-align:center;line-height: 30px;"><b>${row["Name"]}</b></div>
                     <div style="text-align:center"><span style="color:black"> ${row["Gia"]}$</span> </div>
-               
                     <div class="product-content-right-product-button"><button   onclick="addToCard(${row['id']})" id = "test"><i class="fas fa-shopping-cart"></i> <p>thêm vào giỏ hàng</p></button> </div>
                  </div>
             `;
@@ -158,7 +157,10 @@ app.post('/buyProduct', async function (req, res) {
 app.get('/getInfo', function (req, res) {
     shoppingCard.info(req, res);
 });
-
+//Trang chu
+app.get('/homepage', function (req, res) {
+    res.sendFile(__dirname+"/homepage.html");
+})
 app.listen(3000, function () {
     console.log('Server is running..');
 });

@@ -26,6 +26,10 @@ function getShoppingCard() {
 }
 // hàm mua sản phẩm
 function buyProducts() {
+    if (localStorage.getItem("shoppingcard") == undefined || localStorage.getItem("shoppingcard") == "[]") {
+        var choice = confirm("Bạn chưa có sản phẩm giỏ hàng?")
+    }
+    else {
     var arrSP = [];
 
     $(".product").toArray().forEach(item => {
@@ -34,7 +38,6 @@ function buyProducts() {
             SoLuong: $(item).find("#sl_input").val(),
             Gia: $(item).attr("price"),
         })
-
     });
     $.post("/buyProduct", {
         id_KH: JSON.parse(localStorage.getItem('user'))[0].id_Login,
@@ -47,6 +50,7 @@ function buyProducts() {
         // Xóa biến Tổng Tiền trong localStorage
         localStorage.removeItem("Tongtien");
     });
+}
 }
 // hàm tổng tiền
 function TongTien() {
@@ -67,10 +71,15 @@ function TongTien() {
 }
 // xóa tất cả
 function delAll() {
+    if (localStorage.getItem("shoppingcard") == undefined || localStorage.getItem("shoppingcard") == "[]") {
+        var choice = confirm("Bạn chưa có sản phẩm giỏ hàng ?")
+    }
+    else {
     var choice = confirm("Bạn có muốn xóa hết giỏ hàng?")
     if (choice == true) {
         localStorage.removeItem("shoppingcard")
         window.location.href = '/index'
+    }
     }
 
 }
