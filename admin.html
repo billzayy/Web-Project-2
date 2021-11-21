@@ -20,7 +20,10 @@
             <ul>
                 <li><a  href="#"> <img style="width:20px" src="./images/hi.png" alt="">Chào:  <span style="color:blueviolet; font-size:22px" id = "admin_Name"></span><span style="color: red; font-size:20px">❤</span></a>
                 <li>
-                    <a href="#" id = "SanPhamId"><img style="width:20px" src="./images/options.png" alt="">Sản Phẩm</a>
+                    <a href="#" id = "SanPhamId" onclick="getData(1)">
+                        <img style="width:20px" src="./images/options.png" alt="" >
+                        Sản Phẩm
+                    </a>
                 </li>
                 
                 <li>
@@ -41,22 +44,28 @@
                 <img id = "adminBg"src="./images/a1.jpg" alt="">
             </div>
 
-            <div id="content">
-                <!-- <table style = "width: 50%;">
+            <div id="edit_Box">
+                <table>
                     <tr>
-                        <td>Id</td>
-                        <td>Image</td>
-                        <td>Name</td>
-                        <td>Price</td>
+                        <td id = "titleEdit">Name : </td>
+                        <td><input type="text" name="NameBox" id="txtname"></td>
+                    
+                        <td id = "titleEdit">Gia: </td>
+                        <td><input type="text" name="PriceBox" id="txtGia"></td>
+                    
+                        <td id = "titleEdit">Image: </td>
+                        <td><input type="file" name="ImageBox" id="txtIMG"></td>
+                    
+                        <td><input type="button" value="Save" onclick="onSave()"></td>
+                        <td>
+                            <input type="button" value="Add New" onclick = "onAddNew()">
+                        </td>
                     </tr>
-                    <tr>
-                        <td id="ProductId"></td>
-                        <td style="width: 30%;"><img style="width: 100%" id="ProductImage"></td>
-                        <td id="ProductName"></td>
-                        <td id="ProductPrice"></td>
-                    </tr>
-                </table> -->
+                </table>
             </div>
+            <input type="hidden" id="Id">
+
+            <div id="content"></div>
          </div>
      </section>
      <section>
