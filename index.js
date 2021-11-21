@@ -9,6 +9,7 @@ const login = require('./login');
 const getImage = require('./getImage');
 const search = require('./search');
 const blogs = require('./Blogs');
+const admin = require('./admin')
 const shoppingCard = require('./shoppingcard');
 
 var app = express(); 
@@ -111,6 +112,22 @@ app.get('/getsignUp/:username/:password/:email', (req, res) => {
 app.get('/admin', function (req, res) {
     res.sendFile(__dirname + "/admin.html");
 });
+
+app.get('/getProductAdmin', (req, res) => {
+    admin.getProduct(req, res);
+})
+
+app.get('/addAdmin/:Name/:Gia/:Img', (req, res) => {
+    admin.addProduct(req, res);
+})
+
+app.get('/updateAdmin/:id/:Name/:Gia/:Img', (req, res) => {
+    admin.updateProduct(req,res);
+})
+
+app.get('/deleteAdmin/:id', (req, res) => {
+    admin.deleteProduct(req, res);
+})
 //trang blogs
 
 app.get('/blogs', function (req, res) {
