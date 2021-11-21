@@ -7,8 +7,6 @@
     <link rel="stylesheet" href="./css/admin.css">
     <script src="https://kit.fontawesome.com/54f0cb7e4a.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="ckeditor/ckeditor.js"></script>
-    <script src="ckfinder/ckfinder.js"></script>
     <script src="./jquery/adminJquery.js"></script>
     <title>Admin-TPA</title>
 </head>
@@ -21,35 +19,43 @@
         </div>
             <ul>
                 <li><a  href="#"> <img style="width:20px" src="./images/hi.png" alt="">Chào:  <span style="color:blueviolet; font-size:22px" id = "admin_Name"></span><span style="color: red; font-size:20px">❤</span></a>
-                <li><a href="#"><img style="width:20px" src="./images/options.png" alt="">Danh Mục</a>
-                    <ul>
-                        <li><a href="">Danh sách</a></li>
-                        <li><a href="">Thêm</a></li>
-                    </ul>
+                <li>
+                    <a href="#" id = "SanPhamId"><img style="width:20px" src="./images/options.png" alt="">Sản Phẩm</a>
                 </li>
                 
-                
-                <li><a href="#"><img style="width:20px" src="./images/article.png" alt="">Sản phẩm</a>
-                    <ul>
-                        <li><a href="">Danh sách</a></li>
-                        <li><a href="">Thêm</a></li>
-                    </ul>
+                <li>
+                    <a href="#"><img style="width:20px" src="./images/article.png" alt="">Hóa Đơn</a>
                 </li>
-                <li><a href="#"><img style="width:20px" src="./images/picture.png" alt="">Ảnh Sản phẩm</a>
-                    <ul>
-                        <li><a href="">Danh sách</a></li>
-                        <li><a href="">Thêm</a></li>
-                    </ul>
+
+                <li>
+                    <a href="#"><img style="width:20px" src="./images/picture.png" alt="">Khách Hàng</a>
                 </li>
                
-                <li><a href="/login"> <img style="width:20px" src="./images/logout.png" alt="">Đăng Xuất</a>
+                <li><a href="/login" id = "Log_Out"> <img style="width:20px" src="./images/logout.png" alt="">Đăng Xuất</a>
                     
                 </li>
             </ul>
         </div>
         <div class="admin-content-right">
             <div class="admin-content-right-bg">
-                <img src="./images/a1.jpg" alt="">
+                <img id = "adminBg"src="./images/a1.jpg" alt="">
+            </div>
+
+            <div id="content">
+                <!-- <table style = "width: 50%;">
+                    <tr>
+                        <td>Id</td>
+                        <td>Image</td>
+                        <td>Name</td>
+                        <td>Price</td>
+                    </tr>
+                    <tr>
+                        <td id="ProductId"></td>
+                        <td style="width: 30%;"><img style="width: 100%" id="ProductImage"></td>
+                        <td id="ProductName"></td>
+                        <td id="ProductPrice"></td>
+                    </tr>
+                </table> -->
             </div>
          </div>
      </section>
