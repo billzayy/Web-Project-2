@@ -38,7 +38,6 @@ function buyProducts() {
             SoLuong: $(item).find("#sl_input").val(),
             Gia: $(item).attr("price"),
         })
-
     });
     $.post("/buyProduct", {
         id_KH: JSON.parse(localStorage.getItem('user'))[0].id_Login,

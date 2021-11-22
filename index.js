@@ -9,6 +9,7 @@ const login = require('./login');
 const getImage = require('./getImage');
 const search = require('./search');
 const blogs = require('./Blogs');
+const admin = require('./admin')
 const shoppingCard = require('./shoppingcard');
 
 var app = express(); 
@@ -26,7 +27,6 @@ app.get('/', function (req, res) {
                     <a href="/detail/${row["id"]}"><img style="width:300px" src='/images/${row["Image"]}'/></a>
                     <div style="text-align:center;line-height: 30px;"><b>${row["Name"]}</b></div>
                     <div style="text-align:center"><span style="color:black"> ${row["Gia"]}$</span> </div>
-               
                     <div class="product-content-right-product-button"><button   onclick="addToCard(${row['id']})" id = "test"><i class="fas fa-shopping-cart"></i> <p>thêm vào giỏ hàng</p></button> </div>
                  </div>
             `;
@@ -111,6 +111,22 @@ app.get('/getsignUp/:username/:password/:email', (req, res) => {
 app.get('/admin', function (req, res) {
     res.sendFile(__dirname + "/admin.html");
 });
+
+app.get('/getProductAdmin', (req, res) => {
+    admin.getProduct(req, res);
+})
+
+app.get('/addAdmin/:Name/:Gia/:Img', (req, res) => {
+    admin.addProduct(req, res);
+})
+
+app.get('/updateAdmin/:id/:Name/:Gia/:Img', (req, res) => {
+    admin.updateProduct(req,res);
+})
+
+app.get('/deleteAdmin/:id', (req, res) => {
+    admin.deleteProduct(req, res);
+})
 //trang blogs
 
 app.get('/blogs', function (req, res) {
@@ -141,6 +157,7 @@ app.post('/buyProduct', async function (req, res) {
 app.get('/getInfo', function (req, res) {
     shoppingCard.info(req, res);
 });
+
 // homepage
 app.get('/homepage', function (req, res) {
     res.sendFile(__dirname+"/homepage.html");
