@@ -157,7 +157,8 @@ app.post('/buyProduct', async function (req, res) {
 app.get('/getInfo', function (req, res) {
     shoppingCard.info(req, res);
 });
-//Trang chu
+
+// homepage
 app.get('/homepage', function (req, res) {
     res.sendFile(__dirname+"/homepage.html");
 })

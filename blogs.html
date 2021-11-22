@@ -31,18 +31,23 @@
                         <li><a href="/contact">Liện Hệ</a></li>
                     </ul>
                 </div>
-                <div class="header-content-search">
-                    <input type="text" placeholder="search" id="search" onkeypress="search(event)" />
-                    <i class="fas fa-search"></i>
-                </div>
-                <div class="header-content-icon">
-                    <img src="../images/shopping.png" alt="">
-                    <img src="../images/user.png" alt="">
-
-                </div>
+            <div class="header-content-search">
+                <input type="text" placeholder="search" id="search" onkeypress="search(event)" />
+                <i class="fas fa-search"></i>
             </div>
+            <div class="header-content-icon">
+                <a href="./shoppingcard"><img src="./images/shopping.png" alt=""></a>
+                <a href="./login"><img src="./images/user.png" alt=""></a>
+                <div id ="hello_text">
+                    <p>Xin chào : <span id="user"></span></p>
+                </div>
+                <!-- <input type="button" value="Log Out" onclick="logout()" />  -->
+            </div>
+
         </div>
-    </header>
+    </div>
+
+</header>
     <section class="cartegory">
         <div class="row">
             <div id="content"></div>
