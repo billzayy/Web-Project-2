@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $.get("http://localhost:3000/", function (data, status) {
+    $.get("http://localhost:3000/all", function (data, status) {
         $("#content").html(data);
     });
 

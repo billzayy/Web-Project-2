@@ -2,11 +2,11 @@ const sql = require('mssql/msnodesqlv8');
 
 function executeSQL(strSQl, cb) {
     var config = {
-      user: "sa",
-      password: "tuanhdangiu", 
-      server: "BILL\\BILLZAY",
-      database: "Clothing_Web",
-      driver: "msnodesqlv8",
+        user: "sa",
+        password: "phuoc14012002", 
+        server: "DESKTOP-9P7E0E5\\XUANPHUOC",
+        database: "WebBanHang",
+        driver: "msnodesqlv8",
     };
 
     sql.connect(config, function (err, db) {

@@ -15,8 +15,11 @@ var app = express();
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: true }));
-
 app.get('/', function (req, res) {
+    res.redirect('/index');
+});
+
+app.get('/all', function (req, res) {
     sql.executeSQL("select * from SanPham order by pindex", (recordset) => {
         var result = "";
         recordset.recordsets[0].forEach(row => {
@@ -118,7 +121,38 @@ app.get('/blogs', function (req, res) {
 app.get('/getblogs', function (req, res) {
     blogs.blogs(req, res);
 });
+app.get('/blogs/:id', function (req, res) {
+    res.sendFile(__dirname + "/blog.html");
+});
+app.get('/getblog/:id', function (req, res) {
+    sql.executeSQL(`select * from Blog where id_Blog = ${req.params.id}`, (recordset) => {
+        var row = recordset.recordsets[0][0];
+        console.log(".....................")
+        console.log(row)
+        if (row === null || row === undefined) {
+            res.send("");
+        } else {
+            var result = "";
+        
+            result += `
+                <div style='width:100%;float:center;margin-top:20px'>
+                <div style="text-align:left;line-height:100px;margin-top:20px;font-size: 30px;"><b>${row['Title']}</b></div>
+                    <img style="width:40%" class="center" src='/images/${row['image']}'/>
+                    <div style="text-align:left;line-height: 30px;margin-top:20px;;font-size:18px;">${row['Noidung']}</div>
+                </div>
+                `;
+            
+            res.send(result);
+        }
 
+        
+    });
+    
+});
+
+app.get("/getNameBlogs",(req,res) => {
+    // blogs.getName(req,res);
+})
 
 app.get('/contact', function (req, res) {
     res.sendFile(__dirname + "/contact.html");

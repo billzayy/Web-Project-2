@@ -1,132 +1,76 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/54f0cb7e4a.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./Bootstrap/owl.carousel.min.css">
-    <link rel="stylesheet" href="./Bootstrap/owl.theme.default.min.css">
-    <link rel="stylesheet" href="./css/contact.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>TAP</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/public/css/contact.css">
 </head>
-
 <body>
-    
-    <!--------------------------------header----------------  -->
-    <header>
+    <section>
         
+        <!-- Kết thúc đoạn mã mới-->
+    </div>
         <div class="container">
-            <div class="header-content row">
-                <div class="header-content-logo">
-                    <a href="/index"><img src="../images/Logo 2.jpg" alt=""></a>
-                </div>
-                <div class="header-content-nav">
-                    <ul>
-                        <li><a href="/index">Trang Chủ</a></li>
-                        <li><a href="#cartegory">Bộ Sưu Tập</a></li>
-                        <li><a href="/blogs">Blogs</a></li>
-
-                        <li><a href="/contact">Liện Hệ</a></li>
+            <div class="containerinfo">
+                <div>
+                    <h2>Thông Tin Liên Hệ</h2>
+                    <ul class="info">
+                    <li>
+                        <span><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                        <span>Đường 1234 TAP<br/>
+                        Thành Phố Thủ Đức,<br />
+                        Thành Phố Hồ Chí Minh
+                        </span>
+                    </li>
+                    <li>
+                        <span><i class="fa fa-envelope" aria-hidden="true"></i></span>
+                        <span>TAP@gmail.com</span>
+                    </li>
+                    <li>
+                        <span><i class="fa fa-phone-square" aria-hidden="true"></i></span>
+                        <span>012-345-6789</span>
+                    </li>
                     </ul>
                 </div>
-                <div class="header-content-search">
-                    <input type="text" placeholder="search" id="search" onkeypress="search(event)" />
-                    <i class="fas fa-search"></i>
+            <ul class="sci">
+                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+            </ul>
+        </div>
+        <div class="containerForm">
+            <h2>Gửi Lời Nhắn</h2>
+            <div class="formBox">
+                <div class="inputBox w50">
+                    <input type="text" name="" required>
+                    <span>Họ</span>
                 </div>
-                <div class="header-content-icon">
-                    <img src="./images/shopping.png" alt="">
-                    <img src="./images/user.png" alt="">
-
+                <div class="inputBox w50">
+                    <input type="text" name="" required>
+                    <span>Tên</span>
+                </div>
+                <div class="inputBox w50">
+                    <input type="text" name="" required>
+                    <span>Email</span>
+                </div>
+                <div class="inputBox w50">
+                    <input type="text" name="" required>
+                    <span>Số Điện Thoại</span>
+                </div>
+                <div class="inputBox w100">
+                    <textarea name="" required></textarea>
+                    <span>Lời Nhắn Của Bạn....</span>
+                </div>
+                <div class="inputBox w100">
+                    <input type="submit" value="Gửi">
                 </div>
             </div>
-        </div>
-    </header>
-    
-<section class="cartegory">
-    <div class="col-9">
-        <h3>Fill in your details and we will contact you shortly</h3>
-        <div class="form-row">
-            <label class="col-3">
-                Name :
-            </label>
-            <div class="col-6">
-                <input type="text">
-            </div>
-        </div>
-        <div  class="form-row">
-            <label class="col-3">
-                Phone :
-            </label>
-            <div class="col-6">
-                <input type="text">
-            </div>
-        </div>
-        <div class="form-row">
-            <label class="col-3">
-                Email :
-            </label>
-            <div class="col-6">
-                <input type="email">
-            </div>
-        </div>
-        <div class="form-row">
-            <label class="col-3">
-                Message:
-            </label>
-            <div class="col-6">
-                <textarea rows="8" type="text"></textarea>
-            </div>
-        </div>
-        <button class="sbt-btn" type="submit">Submit</button>
     </div>
-</section>
-
-</div>    
-    <!-- -------------------------Footer---------------- -->
-    <footer>
-        <div class="container">
-            <div class="footer-content row">
-                <div class="footer-content-item">
-                    <h3>THÔNG TIN</h3>
-                    <p>CÔNG TY TNHH THỜI TRANG TAP</p>
-                    <p>123 Nguyễn Duy Trinh , TP.Thủ Đức , TP.HCM</p>
-                    <p>18002091</p>
-                    <p>support@TAP.vn</p>
-                    <p>Mst: 0401223344</p>
-                </div>
-                <div class="footer-content-item">
-                    <h3>LIÊN HỆ</h3>
-                    <p>Giới thiệu</p>
-                    <p>Liên hệ với chúng tôi</p>
-                    <p>Tin tức</p>
-                    <p>Hệ thống cửa hàng</p>
-                    <p>Trợ giúp</p>
-                </div>
-                <div class="footer-content-item">
-                    <h3>HỖ TRỢ KHÁCH HÀNG </h3>
-                    <p>Hỏi đáp </p>
-                    <p>Đăng ký tài khoản</p>
-                    <p>Chính sách giao hàng </p>
-                    <p>Hệ thống cửa hàng</p>
-                    <p>Chính sách đổi trả hoàn tiền</p>
-                </div>
-            </div>
-            <div class="footer-content-social">
-                <i class="fab fa-facebook-square"></i>
-                <i class="fab fa-youtube"></i>
-                <i class="fab fa-twitter"></i>
-                <i class="fab fa-linkedin-in"></i>
-            </div>
-
-            <div class="footer-img">
-                <img src="./images/bocongthuong.png" alt="">
-            </div>
-        </div>
-    </footer>
-
-   
+    </section>
 </body>
-
 </html>

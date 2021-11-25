@@ -1,5 +1,7 @@
 $(document).ready(function () {
-    $.get("getblogs/", function (data, status) {
-        $("#conten").html(data);
+    $.get("/getblogs", function (data, status) {
+        $("#content").html(data);
     });
+
+   
 });
