@@ -1,56 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/54f0cb7e4a.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../css/home_page.css">
+    <link rel="stylesheet" href="../Bootstrap/owl.carousel.min.css">
+    <link rel="stylesheet" href="../Bootstrap/owl.theme.default.min.css">
     <link rel="stylesheet" href="../css/header.css">
-    <link rel="stylesheet" href="../css/footer.css">    
-    <title>Website - Ivy</title>
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/homepage.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- <script src = "./jquery/blogJquery.js"></script> -->
+    <script>
+        $(document).ready(function () {
+            
+            var user = localStorage.getItem("user");
+            if (user === null || user === undefined) {
+                $("#user").html("Guest");
+            } else {
+                var objUser = JSON.parse(user);
+                $("#user").html(objUser[0].Name);
+            }
+        });
+       </script>
 </head>
+
 <body>
-  <!--------------------------------header----------------  -->
-  <header>
+    <!--------------------------------header----------------  -->
+    <header>
 
-    <div class="container">
-        <div class="header-content row">
-            <div class="header-content-logo">
-                <a href="/index"><img src="./images/Logo 2.jpg" alt="" ></a>
-            </div>
-            <div class="header-content-nav">
-                <ul>
-                    <li><a href="/homepage">Trang Chủ</a></li>
-                    <li><a href="/index">Bộ Sưu Tập</a></li>
-                    <li><a href="/blogs">Blogs</a></li>
-
-                    <li><a href="/contact">Contact</a></li>
-                </ul>
-            </div>
-            <div class="header-content-search">
-                <input type="text" placeholder="search" id="search" onkeypress="search(event)" />
-                <i class="fas fa-search"></i>
-            </div>
-            <div class="header-content-icon">
-                <a href="./shoppingcard"><img src="./images/shopping.png" alt=""></a>
-                <a href="./login"><img src="./images/user.png" alt=""></a>
-                <div id ="hello_text">
-                    <p>Xin chào : <span id="user"></span></p>
+        <div class="container">
+            <div class="header-content row">
+                <div class="header-content-logo">
+                    <a href="/index"><img src="./images/Logo 2.jpg" alt="" ></a>
                 </div>
-                <!-- <input type="button" value="Log Out" onclick="logout()" />  -->
+                <div class="header-content-nav">
+                    <ul>
+                        <li><a href="/homepage">Trang Chủ</a></li>
+                        <li><a href="/index">Bộ Sưu Tập</a></li>
+                        <li><a href="/blogs">Blogs</a></li>
+
+                        <li><a href="/contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="header-content-search">
+                    <input type="text" placeholder="search" id="search" onkeypress="search(event)" />
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="header-content-icon">
+                    <a href="./shoppingcard"><img src="./images/shopping.png" alt=""></a>
+                    <a href="./login"><img src="./images/user.png" alt=""></a>
+                    <div id ="hello_text">
+                        <p>Xin chào <span id="user"></span>
+                    </div>
+                    <!-- <input type="button" value="Log Out" onclick="logout()" />  -->
+                </div>
+
             </div>
-
         </div>
-    </div>
 
-</header>
+    </header>
     <!-- -----------------------SLlDER---------------------------------------------- -->
     <section class="sliders">
             <div class="aspect-ratio-169">
-                <img src="images/Giày 5.jfif" alt="">
-                <img src="images/Giày 5.jfif" alt="">
+                <img src="images/anh1.jpg" alt="">
                 <img src="images/a1.jpg" alt="">
+                <img src="images/Holy-Grail-1.jpg" alt="">
             </div>
             <div class="dot-container">
                 <div class="dot active"></div>
@@ -99,9 +116,10 @@
     </footer>
 
 
-<script src="../js/homepage.js"></script>
+
 
 
 
 </body>
-</html>           
+<script src="../js/homepage.js"></script>
+</html>     

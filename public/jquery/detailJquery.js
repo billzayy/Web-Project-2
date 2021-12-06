@@ -3,10 +3,10 @@ $(document).ready(function () {
     var arr = window.location.href.split("/");
     $.get("http://localhost:3000/getDetailData/" + arr[arr.length - 1], function (data, status) {
      
-        $("#name").html(data.Name);
-        $("#Gia").html(data.Gia + "$");
-        $("#img").attr("src", "../images/" + data.Image);
+        $("#content").html(data);
+       
         $("#mota").html(data.Mota);
+       
     });
 
     var user = localStorage.getItem("user");
@@ -21,3 +21,17 @@ $(document).ready(function () {
         $("#smalling").html(data);
     });
 });
+function addToCard(productId){
+    var arrProductId =  localStorage.getItem("shoppingcard");
+     if(arrProductId == null || arrProductId == undefined)  {
+       arrProductId = [productId];
+     }
+     else{
+       arrProductId = JSON.parse(arrProductId);
+       if(arrProductId.indexOf(productId) == -1){
+         arrProductId.push(productId);
+       }
+     }
+     arrProductId = JSON.stringify(arrProductId);
+     localStorage.setItem("shoppingcard",arrProductId);
+ }

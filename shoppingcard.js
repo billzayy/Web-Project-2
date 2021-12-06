@@ -3,7 +3,7 @@ const sql = require('./sql');
 function getShoppingCard(arrProductId, cb) {
     sql.executeSQL(`select * from SanPham where id in ${arrProductId}`, (recordset) => {
         if (recordset.recordsets[0] == undefined || recordset.recordsets[0].length === 0) {
-            cb('Giỏ hang trống!')
+            cb('Vui long chon san pham')
         }
         else {
             var result = "";
