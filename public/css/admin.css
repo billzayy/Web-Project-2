@@ -245,3 +245,27 @@ a {
     border: 0px;
     margin-left: 20px;
 }
+#edit_ClientBox, #edit_BillBox, #edit_BillDetailBox{
+    display: flex;
+}
+#edit_ClientBox_1, #edit_ClientBox_2, #edit_ClientBox_3, #edit_ClientBox_4{
+    margin: 0 10px 10px 0;
+}
+
+#edit_BillBox,#edit_BillDetailBox{
+    display: flex;
+    margin: 10px;
+}
+
+#btn_Box{
+    margin: 20px 0 0 0;
+}
+#BillDetail_txt, #Bill_txt{
+    margin: 0 10px;
+}
+#backBTN{
+    width : auto;
+}
+#txtBox{
+    margin: 0 10px;
+}

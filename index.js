@@ -10,6 +10,9 @@ const getImage = require('./getImage');
 const search = require('./search');
 const blogs = require('./Blogs');
 const admin = require('./admin')
+const adminClient = require('./adminClient')
+const adminBill = require('./adminBill')
+const adminBillDetail = require('./adminBillDetail')
 const shoppingCard = require('./shoppingcard');
 
 var app = express(); 
@@ -113,20 +116,69 @@ app.get('/admin', function (req, res) {
     res.sendFile(__dirname + "/admin.html");
 });
 
+// Admin - Product
 app.get('/getProductAdmin', (req, res) => {
     admin.getProduct(req, res);
 })
 
-app.get('/addAdmin/:Name/:Gia/:Img', (req, res) => {
+app.get('/addProductAdmin/:Name/:Gia/:Img', (req, res) => {
     admin.addProduct(req, res);
 })
 
-app.get('/updateAdmin/:id/:Name/:Gia/:Img', (req, res) => {
+app.get('/updateProductAdmin/:id/:Name/:Gia/:Img', (req, res) => {
     admin.updateProduct(req,res);
 })
 
-app.get('/deleteAdmin/:id', (req, res) => {
+app.get('/deleteProductAdmin/:id', (req, res) => {
     admin.deleteProduct(req, res);
+})
+
+//Admin - Bills
+app.get('/getBillAdmin', (req, res) => {
+    adminBill.getBill(req, res);
+})
+
+app.get('/deleteBillAdmin/:id', (req, res) => {
+    adminBill.deleteBill(req, res);
+})
+
+app.get('/updateBillAdmin/:id_HD/:id_KH/:Date/:Price', (req, res) => {
+    adminBill.updateBill(req, res);
+})
+
+app.get('/addBillAdmin/:id_KH/:Date/:Price', (req, res) => {
+    adminBill.addBill(req, res);
+})
+
+app.get('/getBillDetailAdmin', (req, res) => {
+    adminBillDetail.getBillDetail(req, res);
+})
+
+app.get('/addBillDetailAdmin/:id_HD/:SoLuong/:Price', (req, res) => {
+    adminBillDetail.addBillDetail(req, res);
+})
+
+app.get('/updateBillDetailAdmin/:id_HD/:id_CTHD/:SoLuong/:Price', (req, res) => {
+    adminBillDetail.updateBillDetail(req, res);
+})
+app.get('/deleteBillDetailAdmin/:id', (req, res) => {
+    adminBillDetail.deleteBillDetail(req, res);
+})
+// Admin - Client
+app.get('/getClientAdmin', (req, res) => {
+    adminClient.getClient(req, res);
+})
+
+app.get('/addClientAdmin/:Name/:Password/:Email/:Author/:TenKH/:DiaChi/:SDT', (req, res) => {
+    adminClient.addClient(req, res);
+})
+
+app.get('/updateClientAdmin/:id/:Name/:Password/:Email/:Author/:TenKH/:DiaChi/:SDT', (req, res) => {
+    adminClient.updateClient(req,res);
+})
+
+app.get('/deleteClientAdmin/:id',(req,res) => {
+    adminClient.deleteClient(req, res);
 })
 //trang blogs
 

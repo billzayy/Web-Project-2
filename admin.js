@@ -24,16 +24,9 @@ function deleteProduct(req, res) {
     })
 }
 
-function getClient(req,res) {
-    sql.executeSQL(`select * From Login`, (recordset) => {
-        res.send(recordset.recordsets[0])
-    })
-}
-
 module.exports = {
     getProduct: getProduct,
     addProduct: addProduct,
     updateProduct: updateProduct,
-    deleteProduct: deleteProduct,
-    getClient: getClient,
+    deleteProduct: deleteProduct
 }
