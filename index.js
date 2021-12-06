@@ -14,6 +14,7 @@ const adminClient = require('./adminClient')
 const adminBill = require('./adminBill')
 const adminBillDetail = require('./adminBillDetail')
 const shoppingCard = require('./shoppingcard');
+const homepage = require('./homepage');
 
 var app = express(); 
 
@@ -57,7 +58,7 @@ app.post('/getProducByCatId', function (req, res) {
                     <a href="/detail/${row['id']}"><img style="width:300px" src='/images/${row['Image']}'/></a>
                     <div style="text-align:center;line-height: 30px;"><b>${row['Name']}</b></div>
                     <div style="text-align:center"><span style="color:red"> ${row['Gia']}$</span> </div>
-                   
+                  
                     
                  </div>
                 `;
@@ -73,8 +74,46 @@ app.get('/index', function (req, res) {
 // detail
 app.get('/getDetailData/:id', function (req, res) {
     sql.executeSQL(`select * from SanPham where id = ${req.params.id}`, (recordset) => {
-        var row = recordset.recordsets[0][0];
-        res.send(row);
+        var result = "";
+        recordset.recordsets[0].forEach(row => {
+            result +=
+                `  <div class="product-content row">             
+                 <div class="product-content-left row">
+                    <div class="product-content-left-big-img">
+                    <img  src='/images/${row["Image"]}'/></a>
+                    </div>
+                    <div class="product-content-left-small-img">
+                        <div id="smalling"></div>
+                    </div>
+                </div>
+                <div class="product-content-right">
+                    <div class="product-content-right-product-name">
+                    <div >${row["Name"]}</div>
+                    </div>
+                    <div class="product-content-right-product-price">
+                    <div ><span style="color:black"> ${row["Gia"]}$</span> </div>
+                    </div>
+
+                    
+                    <div class="product-content-right-product-button">
+                    <button   onclick="addToCard(${row['id']})" id = "test"><i class="fas fa-shopping-cart"></i> <p>thêm vào giỏ hàng</p></button> 
+    
+                    </div>
+                    <div class="product-content-right-product-icon">
+                <div class="product-content-right-product-icon-item">
+                    <i class="fas fa-phone-alt"></i> <p>Hotline</p>
+                </div>
+                <div class="product-content-right-product-icon-item">
+                    <i class="far fa-comments"></i> <p>Chat</p>
+                </div>
+                <div class="product-content-right-product-icon-item">
+                    <i class="far fa-envelope"></i><p>Mail</p>
+                </div>
+                 </div>   
+                    <div id ="a2" > <h3>chi tiết Sản phẩm</h3> <br>${row["Mota"]}</div>
+            `;
+        });
+        res.send(result);
     });
 });
 
@@ -214,6 +253,10 @@ app.get('/getInfo', function (req, res) {
 app.get('/homepage', function (req, res) {
     res.sendFile(__dirname+"/homepage.html");
 })
+app.get('/homepage', function (req, res) {
+    homepage.homepage(req, res);
+});
+
 app.listen(3000, function () {
     console.log('Server is running..');
 });

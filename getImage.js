@@ -36,7 +36,7 @@ function getImage(req, res) {
 
 module.exports = {
     getImage: getImage,
-    // getTypeProduct:getTypeProduct
+    //  getTypeProduct:getTypeProduct
 }
 
 
