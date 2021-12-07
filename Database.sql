@@ -81,11 +81,3 @@ INSERT INTO Login VALUES
 ('nguyenxuananh','09012002','anh.207pm47612@vanlanguni.vn'),
 ('buixuanphuoc','14012002','phuoc.207pm27490@vanlanguni.vn');
 go
-
-select * From SanPham
-select * From Blogs
-select * From ImageS
-select * From Login
-
-alter table Login
-Add Author Nvarchar(50)	NULL DEFAULT 'Client'

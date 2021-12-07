@@ -22,7 +22,7 @@ function slideRun (index) {
     dotItem[index].classList.add("active");
 }
 
-setInterval (slider,5000)
+setInterval (slider,3000)
 
 
 
