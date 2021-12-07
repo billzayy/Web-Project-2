@@ -1,5 +1,5 @@
 ﻿--create database Clothing_Web
-use Clothing_Web;
+use WebBanHang;
 go
 select * From SanPham
 go

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/54f0cb7e4a.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/Bootstrap/owl.carousel.min.css">
+    <link rel="stylesheet" href="/Bootstrap/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/css/blogs.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Blog Page</title>
+    <script src = "../jquery/blogDetailJquery.js"></script>
+</head>
+
+<body>
+    
+    <div class="header">
+        <h2><a href="/blogs">TAP Fashion's Blog</a></h2>
+      </div>
+
+      <div class="row">
+        <div class="leftcolumn">
+            <div id="content_blogDetail"></div>
+        </div>
+        <div class="rightcolumn">
+            <div class="card">
+                <h2>Author</h2>
+                <div style="height:240px;margin-top:10px;"><img style="width:150px" class="center" src="/images/a3.jfif"/></div>
+                <p>Sometimes plans go awry. Mice and men and all that. Earlier this year I published a short story, Abbot, to introduce my new romantic adventure series, Avenging VIII. Then I wrote the first book, Elder. Then I sent Elder to my developmental editor. Then I got the bad news. There were parts that did not work. Enough parts that I needed to step away and rethink the story.</p>
+            </div>
+        </div>
+      </div>
+    <footer>
+        <div class="container">
+            <div class="footer-content row">
+                <div class="footer-content-item">
+                    <h3>THÔNG TIN</h3>
+                    <p>CÔNG TY TNHH THỜI TRANG TAP</p>
+                    <p>123 ABC - HCM</p>
+                    <p>18002091</p>
+                    <p>support@tap.vn</p>
+                    <p>Mst: 0401223344</p>
+                </div>
+                <div class="footer-content-item">
+                    <h3>LIÊN HỆ</h3>
+                    <p>Giới thiệu</p>
+                    <p>Liên hệ với chúng tôi</p>
+                    <p>Tin tức</p>
+                    <p>Hệ thống cửa hàng</p>
+                    <p>Trợ giúp</p>
+                </div>
+                <div class="footer-content-item">
+                    <h3>HỖ TRỢ KHÁCH HÀNG </h3>
+                    <p>Hỏi đáp </p>
+                    <p>Đăng ký tài khoản</p>
+                    <p>Chính sách giao hàng </p>
+                    <p>Hệ thống cửa hàng</p>
+                    <p>Chính sách đổi trả hoàn tiền</p>
+                </div>
+            </div>
+            <div class="footer-content-social">
+                <i class="fab fa-facebook-square"></i>
+                <i class="fab fa-youtube"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-linkedin-in"></i>
+            </div>
+
+            <div class="footer-img">
+                <img src="../images/bocongthuong.png" alt="">
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
+<!-- 
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="../css/blogs.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.get("getblogs/", function(data, status){
+            $('#content').html(data);
+            });
+        });
+
+        function search(event) {
+                if (event.keyCode === 13) {
+                    $.post(
+                        "http://localhost:3000/search",
+                        {
+                            search: $("#search").val(),
+                        },
+                        function (data, status) {
+                            $("#content").html(data);
+                        }
+                    );
+                }
+            }
+    </script>
+    <script src = "./jquery/blogJquery.js"></script>
+</head>
+<body>
+
+<div class="header">
+  <h2>Blog of TAP</h2>
+</div>
+
+<div class="row">
+  <div class="leftcolumn">
+    <div class="card">
+      <h2>TITLE HEADING</h2>
+      <h5>Title description, Dec 7, 2017</h5>
+      <div class="fakeimg" style="height:200px;">Image</div>
+      <p>Some text..</p>
+      <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+    </div>
+    <div class="card">
+      <h2>TITLE HEADING</h2>
+      <h5>Title description, Sep 2, 2017</h5>
+      <div class="fakeimg" style="height:200px;">Image</div>
+      <p>Some text..</p>
+      <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+    </div>
+  </div>
+  <div class="rightcolumn">
+    <div class="card">
+      <h2>About Me</h2>
+      <div class="fakeimg" style="height:100px;">Image</div>
+      <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
+    </div>
+    <div class="card">
+      <h3>Popular Post</h3>
+      <div class="fakeimg">Image</div><br>
+      <div class="fakeimg">Image</div><br>
+      <div class="fakeimg">Image</div>
+    </div>
+    <div class="card">
+      <h3>Follow Me</h3>
+      <p>Some text..</p>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <h2><div class="container">
+    <div class="footer-content row">
+        <div class="footer-content-item">
+            <h3>THÔNG TIN</h3>
+            <p>CÔNG TY TNHH THỜI TRANG TAP</p>
+            <p>123 Van Lang - TPHCM - VietNam</p>
+            <p>18002091</p>
+            <p>support@TAP.vn</p>
+            <p>Mst: 0401223344</p>
+        </div>
+        <div class="footer-content-item">
+            <h3>LIÊN HỆ</h3>
+            <p>Giới thiệu</p>
+            <p>Liên hệ với chúng tôi</p>
+            <p>Tin tức</p>
+            <p>Hệ thống cửa hàng</p>
+            <p>Trợ giúp</p>
+        </div>
+        <div class="footer-content-item">
+            <h3>HỖ TRỢ KHÁCH HÀNG </h3>
+            <p>Hỏi đáp </p>
+            <p>Đăng ký tài khoản</p>
+            <p>Chính sách giao hàng </p>
+            <p>Hệ thống cửa hàng</p>
+            <p>Chính sách đổi trả hoàn tiền</p>
+        </div>
+    </div>
+    <div class="footer-content-social">
+        <i class="fab fa-facebook-square"></i>
+        <i class="fab fa-youtube"></i>
+        <i class="fab fa-twitter"></i>
+        <i class="fab fa-linkedin-in"></i>
+    </div>
+
+    <div class="footer-img">
+        <img src="../images/bocongthuong.png" alt="">
+    </div>
+</div></h2>
+</div>
+
+</body>
+</html> -->

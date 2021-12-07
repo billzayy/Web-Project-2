@@ -19,8 +19,8 @@
   "homepage": "https://github.com/nguyenxuananh0910/test1#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "msnodesqlv8": "^2.4.0",
-    "mssql": "^7.2.1"
+    "msnodesqlv8": "^2.4.3",
+    "mssql": "^7.3.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.13"
