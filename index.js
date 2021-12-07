@@ -274,7 +274,7 @@ app.post('/buyProduct', async function (req, res) {
     await shoppingCard.buyProduct(req.body.id_KH,req.body.TongTien, req.body.arrSP);
     res.send("ok")
 });
-app.get('/getInfo', function (req, res) {
+app.get('/getInfo/:id', function (req, res) {
     shoppingCard.info(req, res);
 });
 
