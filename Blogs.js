@@ -1,7 +1,7 @@
 const sql = require('./sql');
 
 function blogs(req,res){
-    sql.executeSQL("select * from Blogs", (recordset) => {
+    sql.executeSQL("select * from Trangchu", (recordset) => {
         var result = "";
         recordset.recordsets[0].forEach(row => {
             result += `
