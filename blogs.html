@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./Bootstrap/owl.theme.default.min.css">
     <link rel="stylesheet" href="./css/blogs.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Blog Page</title>
     <script>
         $(document).ready(function(){
             $.get("getblogs/", function(data, status){
@@ -22,33 +23,26 @@
         });
 
         function search(event) {
-                if (event.keyCode === 13) {
-                    $.post(
-                        "http://localhost:3000/search",
-                        {
-                            search: $("#search").val(),
-                        },
-                        function (data, status) {
-                            $("#content").html(data);
-                        }
-                    );
-                }
+            if (event.keyCode === 13) {
+                $.post(
+                    "http://localhost:3000/search",
+                    {
+                        search: $("#search").val(),
+                    },
+                    function (data, status) {
+                        $("#content").html(data);
+                    }
+                );
             }
-
-        
+        }
     </script>
     <script src = "./jquery/blogJquery.js"></script>
 </head>
 
 <body>
-    
     <div class="header">
         <h2> <a href="/blogs">TAP Fashion's Blog</a></h2>
       </div>
-
-
-    
-      
       <div class="row">
         <div class="leftcolumn">
             <div id="content"></div>
@@ -70,7 +64,7 @@
         <div class="rightcolumn">
           <div class="card">
             <h2>Author</h2>
-            <div  style="height:240px;margin-top:10px"><img style="width:150px" class="center" src="/images/a3.jfif"/></div>
+            <div  style="height:240px;margin-top:10px"><img style="width:150px" class="center" src="./images/a3.jfif"/></div>
             <p>Sometimes plans go awry. Mice and men and all that. Earlier this year I published a short story, Abbot, to introduce my new romantic adventure series, Avenging VIII. Then I wrote the first book, Elder. Then I sent Elder to my developmental editor. Then I got the bad news. There were parts that did not work. Enough parts that I needed to step away and rethink the story.</p>
           </div>
           <!--

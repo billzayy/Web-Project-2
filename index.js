@@ -11,7 +11,7 @@ const search = require('./search');
 const blogs = require('./Blogs');
 const admin = require('./admin')
 
-var app = express(); 
+var app = express();
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -88,9 +88,9 @@ app.get("/getImage/:id", function (req, res) {
 app.post('/getlogin', function (req, res) {
     login.login(req.body.user, req.body.password, (user) => {
         res.send(user);
-    
+
     })
-    
+
 });
 
 app.get('/login', function (req, res) {
@@ -125,32 +125,29 @@ app.get('/blogs/:id', function (req, res) {
     res.sendFile(__dirname + "/blog.html");
 });
 app.get('/getblog/:id', function (req, res) {
-    sql.executeSQL(`select * from Blog where id_Blog = ${req.params.id}`, (recordset) => {
+    sql.executeSQL(`select * from Blogs where id_blogs = ${req.params.id}`, (recordset) => {
         var row = recordset.recordsets[0][0];
         console.log(".....................")
         console.log(row)
         if (row === null || row === undefined) {
             res.send("");
-        } else {
-            var result = "";
-        
-            result += `
+            }
+            else {
+                var result = "";
+                result += `
                 <div style='width:100%;float:center;margin-top:20px'>
-                <div style="text-align:left;line-height:100px;margin-top:20px;font-size: 30px;"><b>${row['Title']}</b></div>
-                    <img style="width:40%" class="center" src='/images/${row['image']}'/>
-                    <div style="text-align:left;line-height: 30px;margin-top:20px;;font-size:18px;">${row['Noidung']}</div>
+                    <div style="text-align:left;line-height:100px;margin-top:20px;font-size: 30px;"><b>${row['Title']}</b></div>
+                    <img style="width:40%" class="center" src='/images/${row['Imag']}'/>
+                    <div style="text-align:left;line-height: 30px;margin-top:20px;font-size:18px;">${row['Noidung']}</div>
                 </div>
                 `;
-            
-            res.send(result);
-        }
-
-        
+                res.send(result);
+                console.log(row)
+            }
+        })
     });
-    
-});
 
-app.get("/getNameBlogs",(req,res) => {
+app.get("/getNameBlogs", (req, res) => {
     // blogs.getName(req,res);
 })
 
