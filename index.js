@@ -10,11 +10,16 @@ const getImage = require('./getImage');
 const search = require('./search');
 const blogs = require('./Blogs');
 const admin = require('./admin')
+const adminClient = require('./adminClient')
+const adminBill = require('./adminBill')
+const adminBillDetail = require('./adminBillDetail')
+const shoppingCard = require('./shoppingcard');
 
 var app = express();
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: true }));
+//hiện thi sản phẩm
 app.get('/', function (req, res) {
     res.redirect('/index');
 });
@@ -29,15 +34,15 @@ app.get('/all', function (req, res) {
                     <a href="/detail/${row["id"]}"><img style="width:300px" src='/images/${row["Image"]}'/></a>
                     <div style="text-align:center;line-height: 30px;"><b>${row["Name"]}</b></div>
                     <div style="text-align:center"><span style="color:black"> ${row["Gia"]}$</span> </div>
-                    <div style="text-align:center"><input type="button" value="thêm vào giỏ hàng" onclick="addToCard(${row['id']})"/></div>
-
+                    <div class="product-content-right-product-button"><button   onclick="addToCard(${row['id']})" id = "test"><i class="fas fa-shopping-cart"></i> <p>thêm vào giỏ hàng</p></button> </div>
                  </div>
             `;
         });
         res.send(result);
     });
 });
-
+     // <div style="text-align:center"><input type="button" value="thêm vào giỏ hàng" onclick="addToCard(${row['id']})"/></div>
+// tiềm kiếm sản phẩm
 app.post('/search', function (req, res) {
     search.search(req.body.search, res);
 });
@@ -69,7 +74,7 @@ app.post('/getProducByCatId', function (req, res) {
 app.get('/index', function (req, res) {
     res.sendFile(__dirname + "/index.html");
 });
-
+// detail
 app.get('/getDetailData/:id', function (req, res) {
     sql.executeSQL(`select * from SanPham where id = ${req.params.id}`, (recordset) => {
         var row = recordset.recordsets[0][0];
@@ -83,8 +88,11 @@ app.get('/detail/:id', function (req, res) {
 app.get("/getImage/:id", function (req, res) {
     getImage.getImage(req, res);
 });
+// app.get('/getTypeProduct', function (req, res) {
+//     getImage.getTypeProduct(req, res);
+// });
 
-
+// login
 app.post('/getlogin', function (req, res) {
     login.login(req.body.user, req.body.password, (user) => {
         res.send(user);
@@ -106,14 +114,76 @@ app.get('/getsignUp/:username/:password/:email', (req, res) => {
         res.send(rowsAffected.toString());
     })
 })
-
+//admin
 app.get('/admin', function (req, res) {
     res.sendFile(__dirname + "/admin.html");
 });
 
+// Admin - Product
 app.get('/getProductAdmin', (req, res) => {
     admin.getProduct(req, res);
 })
+
+app.get('/addProductAdmin/:Name/:Gia/:Img', (req, res) => {
+    admin.addProduct(req, res);
+})
+
+app.get('/updateProductAdmin/:id/:Name/:Gia/:Img', (req, res) => {
+    admin.updateProduct(req,res);
+})
+
+app.get('/deleteProductAdmin/:id', (req, res) => {
+    admin.deleteProduct(req, res);
+})
+
+//Admin - Bills
+app.get('/getBillAdmin', (req, res) => {
+    adminBill.getBill(req, res);
+})
+
+app.get('/deleteBillAdmin/:id', (req, res) => {
+    adminBill.deleteBill(req, res);
+})
+
+app.get('/updateBillAdmin/:id_HD/:id_KH/:Date/:Price', (req, res) => {
+    adminBill.updateBill(req, res);
+})
+
+app.get('/addBillAdmin/:id_KH/:Date/:Price', (req, res) => {
+    adminBill.addBill(req, res);
+})
+
+app.get('/getBillDetailAdmin', (req, res) => {
+    adminBillDetail.getBillDetail(req, res);
+})
+
+app.get('/addBillDetailAdmin/:id_HD/:SoLuong/:Price', (req, res) => {
+    adminBillDetail.addBillDetail(req, res);
+})
+
+app.get('/updateBillDetailAdmin/:id_HD/:id_CTHD/:SoLuong/:Price', (req, res) => {
+    adminBillDetail.updateBillDetail(req, res);
+})
+app.get('/deleteBillDetailAdmin/:id', (req, res) => {
+    adminBillDetail.deleteBillDetail(req, res);
+})
+// Admin - Client
+app.get('/getClientAdmin', (req, res) => {
+    adminClient.getClient(req, res);
+})
+
+app.get('/addClientAdmin/:Name/:Password/:Email/:Author/:TenKH/:DiaChi/:SDT', (req, res) => {
+    adminClient.addClient(req, res);
+})
+
+app.get('/updateClientAdmin/:id/:Name/:Password/:Email/:Author/:TenKH/:DiaChi/:SDT', (req, res) => {
+    adminClient.updateClient(req,res);
+})
+
+app.get('/deleteClientAdmin/:id',(req,res) => {
+    adminClient.deleteClient(req, res);
+})
+//trang blogs
 
 app.get('/blogs', function (req, res) {
     res.sendFile(__dirname + "/blogs.html");
@@ -147,18 +217,33 @@ app.get('/getblog/:id', function (req, res) {
         })
     });
 
-app.get("/getNameBlogs", (req, res) => {
-    // blogs.getName(req,res);
-})
-
+// contact
 app.get('/contact', function (req, res) {
     res.sendFile(__dirname + "/contact.html");
 });
+//shoppingcard
 
-app.get('/shoppingcart', (req, res) => {
-    res.sendFile(__dirname + "/shoppingcart.html")
+app.post('/getshoppingCard', function (req, res)  {
+    shoppingCard.getShoppingCard(req.body.arrProductId, (result) => {
+        res.send(result);
+    })
 })
+app.get('/shoppingcard', function (req, res) {
+    res.sendFile(__dirname+"/shoppingcard.html");
+})
+app.post('/buyProduct', async function (req, res) {
+    await shoppingCard.buyProduct(req.body.id_KH,req.body.TongTien, req.body.arrSP);
+    res.send("ok")
+});
+app.get('/getInfo', function (req, res) {
+    shoppingCard.info(req, res);
+});
 
+// homepage
+app.get('/homepage', function (req, res) {
+    res.sendFile(__dirname+"/homepage.html");
+})
 app.listen(3000, function () {
     console.log('Server is running..');
 });
+

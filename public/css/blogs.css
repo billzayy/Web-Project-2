@@ -265,41 +265,7 @@ a{
 .cartegory-top {
     margin-bottom: 50px;
 }
-.cartegory-top p {
-    font-family: var(--main-text-font);
-    margin: 0 12px;
-    font-size: 12px;
-}
-.cartegory-left {
-    width: 40%;
-}
 
-
-.cartegory-left ul li {
-    padding: 12px 0;
-}
-.cartegory-left ul li {
-    color: black;
-    font-size: 16px;
-    font-weight: bold;
-    font-family: var(--main-text-font);
-    cursor: pointer;
-}
-.cartegory-left ul li ul li {
-    padding-left: 10px;
-}
-.cartegory-left-li ul{
-    display: none;
-    
-
-}
-.cartegory-left-li.block ul {
-    display: block;
-}
-.cartegory-left ul li ul li a {
-    color: #333333;
-    font-size: 22px;
-}
 
 /* ---------------------Cartegory------------------------------------- */
 .cartegory {

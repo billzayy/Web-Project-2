@@ -227,3 +227,45 @@ a {
 #logo{
     max-width:45%;
 }
+#edit_Box{
+    text-align: right;
+}
+#Content_Box td{
+    border-color: black;
+}
+#edit_Box table tr{
+    display: flex;
+    justify-content: space-between;
+}
+#edit_Box table tr #titleEdit{
+    margin-left: 50px;
+    border: 0px;
+}
+#edit_Box table tr td {
+    border: 0px;
+    margin-left: 20px;
+}
+#edit_ClientBox, #edit_BillBox, #edit_BillDetailBox{
+    display: flex;
+}
+#edit_ClientBox_1, #edit_ClientBox_2, #edit_ClientBox_3, #edit_ClientBox_4{
+    margin: 0 10px 10px 0;
+}
+
+#edit_BillBox,#edit_BillDetailBox{
+    display: flex;
+    margin: 10px;
+}
+
+#btn_Box{
+    margin: 20px 0 0 0;
+}
+#BillDetail_txt, #Bill_txt{
+    margin: 0 10px;
+}
+#backBTN{
+    width : auto;
+}
+#txtBox{
+    margin: 0 10px;
+}

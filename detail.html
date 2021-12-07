@@ -9,25 +9,28 @@
     <link rel="stylesheet" href="../Bootstrap/owl.carousel.min.css">
     <link rel="stylesheet" href="../Bootstrap/owl.theme.default.min.css">
     <link rel="stylesheet" href="../css/BST.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/footer.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src = "../jquery/detailJquery.js"></script>
 </head>
 
 <body>
     <!--------------------------------header----------------  -->
-    <header>
+     <!--------------------------------header----------------  -->
+     <header>
+
         <div class="container">
             <div class="header-content row">
                 <div class="header-content-logo">
-                    <a href="/index"><img src="../images/Logo 2.jpg" alt=""></a>
+                    <a href="/index"><img src="./images/Logo 2.jpg" alt="" ></a>
                 </div>
                 <div class="header-content-nav">
                     <ul>
-                        <li><a href="/index">Trang Chủ</a></li>
-                        <li><a href="#cartegory">Bộ Sưu Tập</a></li>
-                        <li><a href="/blogs" target="_blank">Blogs</a></li>
-
-                        <li><a href="/contact">Liện Hệ</a></li>
+                        <li><a href="/homepage">Trang Chủ</a></li>
+                        <li><a href="/index">Bộ Sưu Tập</a></li>
+                        <li><a href="/blogs">Blogs</a></li>
+                        <li><a href="/contact">Contact</a></li>
                     </ul>
                 </div>
                 <div class="header-content-search">
@@ -35,116 +38,110 @@
                     <i class="fas fa-search"></i>
                 </div>
                 <div class="header-content-icon">
-                    <a href="../shopping-card"> <img src="../images/shopping.png" alt="" ></a>
-                    <a href="../login"><img src="../images/user.png" alt=""></a>
-
+                    <a href="./shoppingcard"><img src="./images/shopping.png" alt=""></a>
+                    <a href="./login"><img src="./images/user.png" alt=""></a>
+                    <div id ="hello_text">
+                        <p>Xin chào : <span id="user"></span></p>
+                    </div>
+                    <!-- <input type="button" value="Log Out" onclick="logout()" />  -->
                 </div>
+
             </div>
         </div>
+
     </header>
-
-    
-
-    
-        <section class="product">
-            <div class="container">
-                <div class="product-content row">
-                    <div class="product-content-left row">
-                        <div class="product-content-left-big-img">
-                            <img id="img" />
-                        </div>
-                        <div class="product-content-left-small-img">
-                            <div id="smalling"></div>
-                        </div>
+     <!--------------------------------header----------------  -->
+    <section class="product">
+        <div class="container">
+            <div class="product-content row">
+                <div class="product-content-left row">
+                    <div class="product-content-left-big-img">
+                        <img id="img" />
                     </div>
-                    <div class="product-content-right">
-                        <div class="product-content-right-product-name">
-                            <h1><b id="name"></b></h1>
-                        </div>
-                        <div class="product-content-right-product-price">
-                            <div  id="Gia"> </i> </div>
-                        </div>
-                        
-                        <div class="product-content-right-product-size">
-                            <p style="font-weight: bold;">Size:</p>
-                            <div class="size">
-                                <span>S</span>
-                                <span>M</span>
-                                <span>L</span>
-                               
-                            </div>
-                        </div>
-                        <div class="quantity">
-                            <p style="font-weight: bold;">Số lượng:</p>
-                            <input type="number" min="0" value="1"> 
-                        </div>
-                        <p style="color: red;">Vui lòng chọn size</p>
-                        <div class="product-content-right-product-button">
-                            <button id = "test"><i class="fas fa-shopping-cart"></i> <p>MUA HÀNG</p></button>
-                            <button><p>TÌM TẠI CỬA HÀNG</p></button>
-                        </div>
-                        <div class="product-content-right-product-icon">
-                            <div class="product-content-right-product-icon-item">
-                                <i class="fas fa-phone-alt"></i> <p>Hotline</p>
-                            </div>
-                            <div class="product-content-right-product-icon-item">
-                                <i class="far fa-comments"></i> <p>Chat</p>
-                            </div>
-                            <div class="product-content-right-product-icon-item">
-                                <i class="far fa-envelope"></i><p>Mail</p>
-                            </div>
-                           
-                        </div>    
-                       
-                        <div class="product-content-right-bottom">
-                            <div class="product-content-right-bottom-top">
-                                ∨
-                            </div>
-                            <div class="product-content-right-bottom-content-big">
-                                <div class="product-content-right-bottom-content-title row">
-                                    <div class="product-content-right-bottom-content-title-item chitiet">
-                                            <p>Chi tiết</p>
-                                    </div>
-                                    <div class="product-content-right-bottom-content-title-item baoquan">
-                                            <p>Bảo quản</p>
-                                    </div>
-                                    <div class="product-content-right-bottom-content-title-item">
-                                        <p>Tham khảo size</p>
-                                    </div>
-                                </div>
-                                <div class="product-content-right-bottom-content">
-                                    <div class="product-content-right-bottom-content-chitiet">
-                                        <div id="mota" style="font-weight: 700;"></div>
-                                    </div>
-                                    <div class="product-content-right-bottom-content-baoquan">
-                                        Chi tiết bảo quản sản phẩm : 
-    
-    * Vải dệt kim : sau khi giặt sản phẩm phải được phơi ngang tránh bai dãn. <br><br>
-    
-    * Vải voan , lụa , chiffon nên giặt bằng tay.<br><br>
-    
-    * Vải thô , tuytsy , kaki không có phối hay trang trí đá cườm thì có thể giặt máy.<br><br>
-    
-    * Vải thô , tuytsy, kaki có phối màu tường phản hay trang trí voan , lụa , đá cườm thì cần giặt tay.<br><br>
-    
-    * Đồ Jeans nên hạn chế giặt bằng máy giặt vì sẽ làm phai màu jeans.Nếu giặt thì nên lộn trái sản phẩm khi giặt , đóng khuy , kéo khóa, không nên giặt chung cùng đồ sáng màu , tránh dính màu vào các sản phẩm khác. <br><br>
-    
-    * Các sản phẩm cần được giặt ngay không ngâm tránh bị loang màu , phân biệt màu và loại vải để tránh trường hợp vải phai. Không nên giặt sản phẩm với xà phòng có chất tẩy mạnh , nên giặt cùng xà phòng pha loãng.<br><br>
-    
-    * Các sản phẩm có thể giặt bằng máy thì chỉ nên để chế độ giặt nhẹ , vắt mức trung bình và nên phân các loại sản phẩm cùng màu và cùng loại vải khi giặt.
-                                    </div>
-                                </div>
-                            
-                            </div>
-                        </div>
+                    <div class="product-content-left-small-img">
+                        <div id="smalling"></div>
                     </div>
-    
                 </div>
+                <div class="product-content-right">
+                    <div class="product-content-right-product-name">
+                        <h1><b id="name"></b></h1>
+                    </div>
+                    <div class="product-content-right-product-price">
+                        <div  id="Gia"> </i> </div>
+                    </div>
+
+                    <div class="product-content-right-product-button">
+                        <button id = "test"><i class="fas fa-shopping-cart"></i> <p>MUA HÀNG</p></button>
+                        <button><p>TÌM TẠI CỬA HÀNG</p></button>
+                    </div>
+                    <div class="product-content-right-product-icon">
+                        <div class="product-content-right-product-icon-item">
+                            <i class="fas fa-phone-alt"></i> <p>Hotline</p>
+                        </div>
+                        <div class="product-content-right-product-icon-item">
+                            <i class="far fa-comments"></i> <p>Chat</p>
+                        </div>
+                        <div class="product-content-right-product-icon-item">
+                            <i class="far fa-envelope"></i><p>Mail</p>
+                        </div>
+                       
+                    </div>    
+                   
+                    <div class="product-content-right-bottom">
+                        <div class="product-content-right-bottom-top">
+                            ∨
+                        </div>
+                        <div class="product-content-right-bottom-content-big">
+                            <div class="product-content-right-bottom-content-title row">
+                                <div class="product-content-right-bottom-content-title-item chitiet">
+                                        <p>Chi tiết</p>
+                                </div>
+                                <div class="product-content-right-bottom-content-title-item baoquan">
+                                        <p>Bảo quản</p>
+                                </div>
+                                <div class="product-content-right-bottom-content-title-item">
+                                    <p>Tham khảo size</p>
+                                </div>
+                            </div>
+                            <div class="product-content-right-bottom-content">
+                                <div class="product-content-right-bottom-content-chitiet">
+                                    <div id="mota" style="font-weight: 700;"></div>
+                                </div>
+                                <div class="product-content-right-bottom-content-baoquan">
+                                    Chi tiết bảo quản sản phẩm : 
+
+* Vải dệt kim : sau khi giặt sản phẩm phải được phơi ngang tránh bai dãn. <br><br>
+
+* Vải voan , lụa , chiffon nên giặt bằng tay.<br><br>
+
+* Vải thô , tuytsy , kaki không có phối hay trang trí đá cườm thì có thể giặt máy.<br><br>
+
+* Vải thô , tuytsy, kaki có phối màu tường phản hay trang trí voan , lụa , đá cườm thì cần giặt tay.<br><br>
+
+* Đồ Jeans nên hạn chế giặt bằng máy giặt vì sẽ làm phai màu jeans.Nếu giặt thì nên lộn trái sản phẩm khi giặt , đóng khuy , kéo khóa, không nên giặt chung cùng đồ sáng màu , tránh dính màu vào các sản phẩm khác. <br><br>
+
+* Các sản phẩm cần được giặt ngay không ngâm tránh bị loang màu , phân biệt màu và loại vải để tránh trường hợp vải phai. Không nên giặt sản phẩm với xà phòng có chất tẩy mạnh , nên giặt cùng xà phòng pha loãng.<br><br>
+
+* Các sản phẩm có thể giặt bằng máy thì chỉ nên để chế độ giặt nhẹ , vắt mức trung bình và nên phân các loại sản phẩm cùng màu và cùng loại vải khi giặt.
+                                </div>
+                            </div>
+                        
+                        </div>
+                    </div>
+                </div>
+
             </div>
+        </div>
+       
+    </section>
+
+    <h1 >san pham moi</h1>
+  
     
-        </section>
-    <!-- -------------------------Footer---------------- -->
-    <footer>
+    
+
+     <!-- -------------------------Footer---------------- -->
+     <footer>
         <div class="container">
             <div class="footer-content row">
                 <div class="footer-content-item">
@@ -159,8 +156,6 @@
                     <h3>LIÊN HỆ</h3>
                     <p>Giới thiệu</p>
                     <p>Liên hệ với chúng tôi</p>
-                    <p>Tin tức</p>
-                    <p>Hệ thống cửa hàng</p>
                     <p>Trợ giúp</p>
                 </div>
                 <div class="footer-content-item">
@@ -184,9 +179,8 @@
             </div>
         </div>
     </footer>
-
    
-<!-- <script src="../js/SP1.js"></script> -->
+ <!-- <script src="../js/SP1.js"></script>  -->
 </body>
 
 </html>

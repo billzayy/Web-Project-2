@@ -18,17 +18,26 @@
             <img id="logo" src="./images/logo 2.jpg" alt="">
         </div>
             <ul>
-                <li><a  href="#"> <img style="width:20px" src="./images/hi.png" alt="">Chào:  <span style="color:blueviolet; font-size:22px" id = "admin_Name"></span><span style="color: red; font-size:20px">❤</span></a>
+                <li><a  href="#"  onclick="getData(0)"> <img style="width:20px" src="./images/hi.png" alt="">Chào:  <span style="color:blueviolet; font-size:22px" id = "admin_Name"></span><span style="color: red; font-size:20px">❤</span></a>
                 <li>
-                    <a href="#" id = "SanPhamId"><img style="width:20px" src="./images/options.png" alt="">Sản Phẩm</a>
+                    <a href="#" id = "SanPhamId" onclick="getData(1)">
+                        <img style="width:20px" src="./images/options.png" alt="" >
+                        Sản Phẩm
+                    </a>
                 </li>
                 
                 <li>
-                    <a href="#"><img style="width:20px" src="./images/article.png" alt="">Hóa Đơn</a>
+                    <a href="#" id = "BillId" onclick="getData(2)">
+                        <img style="width:20px" src="./images/article.png" alt="">
+                        Hóa Đơn
+                    </a>
                 </li>
 
                 <li>
-                    <a href="#"><img style="width:20px" src="./images/picture.png" alt="">Khách Hàng</a>
+                    <a href="#" id = "ClientId" onclick="getData(3)">
+                        <img style="width:20px" src="./images/picture.png" alt="">
+                        Khách Hàng
+                    </a>
                 </li>
                
                 <li><a href="/login" id = "Log_Out"> <img style="width:20px" src="./images/logout.png" alt="">Đăng Xuất</a>
@@ -40,26 +49,8 @@
             <div class="admin-content-right-bg">
                 <img id = "adminBg"src="./images/a1.jpg" alt="">
             </div>
-
-            <div id="content">
-                <!-- <table style = "width: 50%;">
-                    <tr>
-                        <td>Id</td>
-                        <td>Image</td>
-                        <td>Name</td>
-                        <td>Price</td>
-                    </tr>
-                    <tr>
-                        <td id="ProductId"></td>
-                        <td style="width: 30%;"><img style="width: 100%" id="ProductImage"></td>
-                        <td id="ProductName"></td>
-                        <td id="ProductPrice"></td>
-                    </tr>
-                </table> -->
-            </div>
+            <div id="content"></div>
          </div>
-     </section>
-     <section>
      </section>
      <script src="./js/admin.js"></script>
  </body>
