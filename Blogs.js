@@ -1,17 +1,8 @@
 const sql = require('./sql');
  
-function blogs(req,res){
-    sql.executeSQL("select * from Trangchu", (recordset) => {
-        var result = "";
-        recordset.recordsets[0].forEach(row => {
-            result += `
-                   <img  src='/images/${row['Imagess']}'/>
-                  
-                `;
-        });
-        res.send(result);
-    });
-}
+// function blogs(req,res){
+//     
+// }
  
 module.exports = {
     blogs: blogs

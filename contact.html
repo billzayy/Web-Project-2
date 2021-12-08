@@ -22,6 +22,22 @@
             $("#user").html(objUser[0].Name);
         }
     });
+    function onAddNew() {
+        let Ho = $('#txtho').val()
+        let Ten = $('#txtten').val()
+        let Email = $('#txtEmail').val()
+        let SDT = $('#txtSDT').val()
+        let loi = $('#txtloi').val()
+        $.get(`/addcontact/${Ho}/${Ten}/${Email}/${SDT}/${loi}`, (data, status) => {
+          
+            $('#txtho').val("")
+            $('#txtten').val("")
+            $('#txtEmail').val("")
+            $('#txtSDT').val("")
+            $('#loi').val("")
+            alert("thanh Công")
+        })}
+       
    </script>
 </head>
 <body>
@@ -98,27 +114,29 @@
             <h2>Gửi Lời Nhắn</h2>
             <div class="formBox">
                 <div class="inputBox w50">
-                    <input type="text" name="" required>
+                    <input type="text" id="txtho" name="" required>
                     <span>Họ</span>
                 </div>
                 <div class="inputBox w50">
-                    <input type="text" name="" required>
+                    <input type="text"id="txtten" name="" required>
                     <span>Tên</span>
                 </div>
                 <div class="inputBox w50">
-                    <input type="text" name="" required>
+                    <input type="text" id="txtEmail" name="" required>
                     <span>Email</span>
                 </div>
                 <div class="inputBox w50">
-                    <input type="text" name="" required>
+                    <input type="text" id="txtSDT" name="" required>
                     <span>Số Điện Thoại</span>
                 </div>
                 <div class="inputBox w100">
-                    <textarea name="" required></textarea>
+                    <!-- <textarea name="" required id="txtloi"></textarea> -->
+                    <input type="text" id="txtloi" name="" required>
                     <span>Lời Nhắn Của Bạn....</span>
                 </div>
                 <div class="inputBox w100">
-                    <input type="submit" id="A1" value="Gửi">
+                    <button  onclick="onAddNew()" type="submit" id="A1"><i class="far fa-envelope"></i>Gửi </a></button>
+                    <!-- <button onclick="onAddNew()" type="submit" id="A1">gửi</button>  -->
                 </div>
             </div>
     </div>
