@@ -8,6 +8,8 @@
     <script src="https://kit.fontawesome.com/54f0cb7e4a.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/Bootstrap/owl.carousel.min.css">
     <link rel="stylesheet" href="/Bootstrap/owl.theme.default.min.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="/css/blogs.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Blog Page</title>
@@ -15,7 +17,39 @@
 </head>
 
 <body>
+    <header>
+        <div class="container">
+            <div class="header-content row">
+                <div class="header-content-logo">
+                    <a href="/index"><img src="/images/Logo 2.jpg" alt=""></a>
+                </div>  
+                <div class="header-content-nav">
+                    <ul>
+                        <li><a href="/homepage">Trang Chủ</a></li>
+                        <li><a href="/index">Bộ Sưu Tập</a></li>
+                        <li><a href="/blogs">Blogs</a></li>
     
+                        <li><a href="/contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="header-content-search">
+                    <input type="text" placeholder="search" id="search" onkeypress="search(event)" />
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="header-content-icon">
+                    <a href="./shoppingcard"><img src="/images/shopping.png" alt=""></a>
+                    <a href="./profile"><img src="/images/user.png" alt=""></a>
+                    <a href="./login"><button style="width: 50px; height: 20px">Out</button></a>
+                    <div id="hello_text">
+                        <p>Xin chào <span id="user"></span>
+                    </div>
+                    <!-- <input type="button" value="Log Out" onclick="logout()" />  -->
+                </div>
+    
+            </div>
+        </div>
+    
+    </header>
     <div class="header">
         <h2><a href="/blogs">TAP Fashion's Blog</a></h2>
       </div>

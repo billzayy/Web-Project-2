@@ -15,7 +15,7 @@ $(document).ready(function () {
                     localStorage.setItem("admin", JSON.stringify(data));
                 }
                 else {
-                    window.location.href = "./index";
+                    window.location.href = "./homepage";
                     localStorage.setItem("user", JSON.stringify(data));
                 }
             }

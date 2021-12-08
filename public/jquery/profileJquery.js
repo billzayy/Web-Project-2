@@ -13,17 +13,20 @@ function onSave() {
 }
 
 $(document).ready(() => {
-    let id = JSON.parse(localStorage.getItem('user'))[0].id
+    let id = JSON.parse(localStorage.getItem('user'))[0].id_Login
     $.get(`/getProfile/${id}`, (data, status) => {
         result = `
         <div class="container rounded bg-white mt-5 mb-5">
         <div class="row">
             <div class="col-md-3 border-right">
                 <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-                    <a href = "./homepage"><img class="rounded-circle mt-5"src="./images/Logo 2.jpg" width="90"></a>
+                    <a href="./homepage"><button id = "btnBack">Back</button></a>
+                    <a href = "./homepage"><img class="rounded-circle mt-5"src="./images/Logo 2.jpg" width="100%"></a>
                     <span class="font-weight-bold">${data[0].TenKH}</span>
                     <span class="text-black-50">${data[0].Email}</span>
-                    <span>${data[0].DiaChi}</span></div>
+                    <span>${data[0].DiaChi}</span>
+                    <span id = "memberSlogan">T.A.P Member</span>
+                </div>
             </div>
             <div class="col-md-5 border-right">
                 <div class="p-3 py-5">
