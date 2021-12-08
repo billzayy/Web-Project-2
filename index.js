@@ -15,6 +15,7 @@ const adminBill = require('./adminBill')
 const adminBillDetail = require('./adminBillDetail')
 const shoppingCard = require('./shoppingcard');
 const homepage = require('./homepage');
+const profile = require('./profile')
 
 var app = express();
 
@@ -285,7 +286,19 @@ app.get('/homepage', function (req, res) {
 app.get('/homepage', function (req, res) {
     homepage.homepage(req, res);
 });
+//Profile
 
+app.get('/profile', (req, res) => {
+    res.sendFile(__dirname + '/profile.html')
+})
+
+app.get('/getProfile/:id', (req, res) => {
+    profile.getProfile(req,res)
+})
+
+app.get('/updateProfile/:id/:Name/:Password/:Email/:TenKH/:DiaChi/:SDT', (req, res) => {
+    profile.updateProfile(req,res)
+})
 app.listen(3000, function () {
     console.log('Server is running..');
 });
