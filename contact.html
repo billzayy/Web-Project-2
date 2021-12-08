@@ -3,10 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TAP</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/contact.css">
+    <script src="https://kit.fontawesome.com/54f0cb7e4a.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../Bootstrap/owl.carousel.min.css">
+    <link rel="stylesheet" href="../Bootstrap/owl.theme.default.min.css">
+    <link rel="stylesheet" href="../css/contact.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <script>
+    $(document).ready(function () {
+        
+        var user = localStorage.getItem("user");
+        if (user === null || user === undefined) {
+            $("#user").html("Guest");
+        } else {
+            var objUser = JSON.parse(user);
+            $("#user").html(objUser[0].Name);
+        }
+    });
+    function onAddNew() {
+        let Ho = $('#txtho').val()
+        let Ten = $('#txtten').val()
+        let Email = $('#txtEmail').val()
+        let SDT = $('#txtSDT').val()
+        let loi = $('#txtloi').val()
+        $.get(`/addcontact/${Ho}/${Ten}/${Email}/${SDT}/${loi}`, (data, status) => {
+          
+            $('#txtho').val("")
+            $('#txtten').val("")
+            $('#txtEmail').val("")
+            $('#txtSDT').val("")
+            $('#loi').val("")
+            alert("thanh Công")
+        })}
+       
+   </script>
 </head>
 <body>
     <section>
@@ -47,27 +78,30 @@
             <h2>Gửi Lời Nhắn</h2>
             <div class="formBox">
                 <div class="inputBox w50">
-                    <input type="text" name="" required>
+                    <input type="text" id="txtho" name="" required>
                     <span>Họ</span>
                 </div>
                 <div class="inputBox w50">
-                    <input type="text" name="" required>
+                    <input type="text"id="txtten" name="" required>
                     <span>Tên</span>
                 </div>
                 <div class="inputBox w50">
-                    <input type="text" name="" required>
+                    <input type="text" id="txtEmail" name="" required>
                     <span>Email</span>
                 </div>
                 <div class="inputBox w50">
-                    <input type="text" name="" required>
+                    <input type="text" id="txtSDT" name="" required>
                     <span>Số Điện Thoại</span>
                 </div>
                 <div class="inputBox w100">
-                    <textarea name="" required></textarea>
+                    <!-- <textarea name="" required id="txtloi"></textarea> -->
+                    <input type="text" id="txtloi" name="" required>
                     <span>Lời Nhắn Của Bạn....</span>
                 </div>
                 <div class="inputBox w100">
-                    <input type="submit" value="Gửi">
+                    <button  onclick="onAddNew()" type="submit" id="A1"><i class="far fa-envelope"></i>Gửi </a></button>
+                    <!-- <button onclick="onAddNew()" type="submit" id="A1">gửi</button>  -->
+
                 </div>
             </div>
     </div>

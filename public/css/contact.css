@@ -19,7 +19,7 @@ section::before{
     left: 0;
     width:50%;
     height: 100%;
-    background: #03a9f4;
+    background: #0c8cc7;
 }
 section .container{
     position: relative;
@@ -33,7 +33,7 @@ section .container .containerinfo{
     top: 40px;
     width: 350px;
     height: calc(100% - 80px);
-    background: #0f3959;
+    background: #089e8a;
     z-index: 1;
     padding: 40px;
     display: flex;
@@ -94,7 +94,7 @@ section .container .containerForm{
     box-shadow: 0 50px 50px rgba(0,0,0,0.5);
 }
 section .container .containerForm h2{
-    color: #0f3959;
+    color: #00060a;
     font-size: 24px;
     font-weight: 500;
 }
@@ -112,7 +112,7 @@ section .container .containerForm .formBox .inputBox{
 section .container .containerForm .formBox .inputBox.w50{
     width: 47%;
 }
-section .container .containerForm .formBox .inputBox.w100{
+section .container .containerForm .formBox .inputBox.w100 {
     width: 100%;
 }
 section .container .containerForm .formBox .inputBox input{
@@ -163,7 +163,7 @@ section .container .containerForm .formBox .inputBox textarea:valid ~ span{
 section .container .contactForm .formBox .inputBox input[type="submit"]{
     position: relative;
     cursor: pointer;
-    background-color: #0f3959;
+    background-color: #0b0b0c;
     color: #fff;
     border: none;
     max-width: 150px;
@@ -172,3 +172,15 @@ section .container .contactForm .formBox .inputBox input[type="submit"]{
 section .container .contactForm .formBox .inputBox input[type="submit"]:hover{
     color: #ff568c;
 }
+#A1:hover{
+        background-color: black;
+        color: white;}
+#A1{
+    width: 100%;
+    background-color:rgb(235, 240, 240);
+    border: none;
+    border-radius: 3px;
+    padding: 1em;
+    font-size: 18px;
+}
+
