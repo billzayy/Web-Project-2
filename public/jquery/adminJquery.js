@@ -189,6 +189,14 @@ function onClientSave() {
     })
 }
 
+function onDeleteContact(id) {
+    $('#IdContact').val(id)
+    let idBox3 = $('#IdContact').val()
+    $.get(`/deleteContactAdmin/${idBox3}`, (data, status) => {
+        getData(5)
+    })
+}
+
 function getData(datatype) {
     $('.admin-content-right-bg').remove();
     if (datatype == 0) {  // Thu nhỏ khúc này lại cho dễ nhìn
@@ -361,7 +369,7 @@ function getData(datatype) {
             data.forEach((item) => {
                 tmp +=
                     `<tr>
-                    <td> ${item.id}</td>
+                    <td> ${item.id_Login}</td>
                     <td> ${item.Name}</td>
                     <td> ${item.Password}</td>
                     <td> ${item.Email}</td>
@@ -403,7 +411,7 @@ function getData(datatype) {
                 <table border='1' style='width: 100%; border: 1px solid blue;' id = "Content_Box">
                     <tr style = 'font-weight : bold'>
                         <td>Id Hoá Đơn</td>
-                        <td>Id CTHD</td>
+                        <td>Id Sản Phẩm</td>
                         <td>Số lượng</td>
                         <td>Giá</td>
                         <td>Chức năng</td>
@@ -427,6 +435,42 @@ function getData(datatype) {
             // console.log(tmp);
             spHTML = spHTML.replace('content', tmp);
             $('#content').html(spHTML);
+        })
+    }
+    if (datatype == 5) {
+        $.get(`/getContactAdmin`, (data, status) => {
+            var spHTML =
+                `
+            <input type="hidden" id="IdContact">
+                <table border='1' style='width: 100%; border: 1px solid blue;' id = "Content_Box">
+                    <tr style = 'font-weight : bold'>
+                        <td>Họ</td>
+                        <td>Tên</td>
+                        <td>Email</td>
+                        <td>SDT</td>
+                        <td>Lời nhắn</td>
+                        <td>Chức năng</td>
+                    </tr>
+                    content
+                </table>`;
+            var tmp = "";
+            data.forEach((item) => {
+                tmp +=
+                    `<tr>
+                    <td>${item.Ho}</td>
+                    <td>${item.Ten}</td>
+                    <td>${item.Email}</td>
+                    <td>${item.SDT}</td>
+                    <td>${item.Loi_nhan}</td>
+                    <td>
+                        <input type='button' value='Delete' onclick= "onDeleteContact('${item.ID_contact}')">
+                    </td>
+                </tr>`;
+            });
+            // console.log(tmp);
+            spHTML = spHTML.replace('content', tmp);
+            $('#content').html(spHTML);
+            console.log(data)
         })
     }
 };

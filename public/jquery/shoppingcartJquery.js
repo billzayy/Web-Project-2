@@ -97,7 +97,7 @@ function onDeleteProduct(ProductId) {
 }
 // xuất thông tin người mua
 $(document).ready(function () {
-    let a = JSON.parse(localStorage.getItem('user'))[0].id
+    let a = JSON.parse(localStorage.getItem('user'))[0].id_Login
     $.get(`getInfo/${a}`, function(data, status){
           $('#content_info').html(data);
         });

@@ -42,3 +42,15 @@ body {
     cursor: pointer;
     border: solid 1px #BA68C8
 }
+#btnBack{
+    border-radius: 10px;
+}
+#btnBack:hover{
+    background-color: black;
+    color: white;
+}
+#memberSlogan{
+    margin-top: 50px;
+    font-size:xx-large;
+    color: cadetblue;
+}

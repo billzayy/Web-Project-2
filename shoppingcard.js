@@ -28,20 +28,21 @@ function getShoppingCard(arrProductId, cb) {
     })
 }
 async function buyProduct(id_KH, HD_TongTien, arrSP) {
-    await sql.executeSQLSync(`insert into HoaDon(id_KH, NgayBan,TongTien) values(${id_KH},getdate(),'${HD_TongTien}')`);
-    var data = await sql.executeSQLSync(`select @@IDENTITY as Id_HD`);
+    await sql.executeSQLSync(`insert into HoaDon(id_KH, NgayBan,TongTien) values(${id_KH},getdate(),${HD_TongTien})`);
+    var data = await sql.executeSQLSync(`select @@IDENTITY as id_HD`);
     arrSP.forEach(async objSP => {
-        await sql.executeSQLSync(`insert into ChiTietHoaDon(id_HD,id, SoLuong, Gia) values('${data.recordsets[0][0]["id_HD"]}',${objSP.id},'${parseInt(objSP.SoLuong)}','${parseInt(objSP.Gia)}') `);
+        await sql.executeSQLSync(`insert into ChiTietHoaDon(id_HD,id, SoLuong, Gia) values(${data.recordsets[0][0]["id_HD"]},${objSP.id},${parseInt(objSP.SoLuong)},${parseInt(objSP.Gia)}) `);
     });
     // await sql.executeSQLSync(`insert into HoaDon(TongTien) values ('${HD_TongTien}') where id_KH = ${id_KH}`)
 }
 
 
 function info(req, res) {
-    sql.executeSQL(`select TenKH , DiaChi, SDT, NgayBan from Login KH INNER JOIN HoaDon HD ON KH.id = HD.id_KH where id = ${req.params.id}`, (recordset) => {
+    sql.executeSQL(`select TenKH , DiaChi, SDT, NgayBan from Login KH INNER JOIN HoaDon HD ON KH.id_Login = HD.id_KH where id_Login = ${req.params.id}`, (recordset) => {
         var result = "";
         recordset.recordsets[0].forEach(row => {
             result += `
+            <p>-------------------------------------</p>
             <div class= "DIACHI">
                     <div >Khách hàng: <b>${row['TenKH']}</b></div>
                     <div >Địa chỉ: <b>${row['DiaChi']}</b></div>
