@@ -301,6 +301,7 @@ function getData(datatype) {
             // console.log(tmp);
             spHTML = spHTML.replace('content', tmp);
             $('#content').html(spHTML);
+            console.log(data)
         })
     }
 
