@@ -12,41 +12,52 @@
     <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="../css/homepage.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Blog Page</title>
+    <script>
+        $(document).ready(function(){
+            $.get("getblogs/", function(data, status){
+                $('#content').html(data);
+            });
+            
+            $.get(`/getNameBlogs`, (data,status) => {
+                $("#Blog_Name").html(data)
+            })
+        });
+
+        function search(event) {
+            if (event.keyCode === 13) {
+                $.post(
+                    "http://localhost:3000/search",
+                    {
+                        search: $("#search").val(),
+                    },
+                    function (data, status) {
+                        $("#content").html(data);
+                    }
+                );
+            }
+        }
+    </script>
     <script src = "./jquery/blogJquery.js"></script>
 </head>
 
 <body>
-    <!--------------------------------header----------------  -->
-    <header>
-
-        <div class="container">
-            <div class="header-content row">
-                <div class="header-content-logo">
-                    <a href="/index"><img src="./images/Logo 2.jpg" alt="" ></a>
-                </div>
-                <div class="header-content-nav">
-                    <ul>
-                        <li><a href="/homepage">Trang Chủ</a></li>
-                        <li><a href="/index">Bộ Sưu Tập</a></li>
-                        <li><a href="/blogs">Blogs</a></li>
-
-                        <li><a href="/contact">Contact</a></li>
-                    </ul>
-                </div>
-
-            <div class="header-content-search">
-                <input type="text" placeholder="search" id="search" onkeypress="search(event)" />
-                <i class="fas fa-search"></i>
-            </div>
-            <div class="header-content-icon">
-                <a href="./shoppingcard"><img src="./images/shopping.png" alt=""></a>
-                <a href="./login"><img src="./images/user.png" alt=""></a>
-                <div id ="hello_text">
-                    <p>Xin chào : <span id="user"></span></p>
-                </div>
-                <!-- <input type="button" value="Log Out" onclick="logout()" />  -->
-
-            </div>
+    <div class="header">
+        <h2> <a href="/blogs">TAP Fashion's Blog</a></h2>
+      </div>
+      <div class="row">
+        <div class="leftcolumn">
+            <div id="content"></div>
+        </div>
+        <div class="rightcolumn">
+          <div class="card">
+            <h2>Author</h2>
+            <div  style="height:240px;margin-top:10px"><img style="width:150px" class="center" src="./images/a3.jfif"/></div>
+            <p>Sometimes plans go awry. Mice and men and all that. Earlier this year I published a short story, Abbot, to introduce my new romantic adventure series, Avenging VIII. Then I wrote the first book, Elder. Then I sent Elder to my developmental editor. Then I got the bad news. There were parts that did not work. Enough parts that I needed to step away and rethink the story.</p>
+          </div>
+        </div>
+        </div>
+        </div>
 
         </div>
 
@@ -55,21 +66,20 @@
 </header>
     <section class="cartegory">
         <div class="row">
-            <div id="content"></div>
+            <div id="content">
+            </div>
         </div>
+        <div id="Blog_Name">TAP</div>
 </section>
-    <!-- -------------------------Footer---------------- -->
-      <!-- -------------------------Footer---------------- -->
-      <footer>
-
+    <footer>
         <div class="container">
             <div class="footer-content row">
                 <div class="footer-content-item">
                     <h3>THÔNG TIN</h3>
-                    <p>Shop Thời Trang</p>
-                    <p>11 Quận 1  TPHCM</p>
-                    <p>18009999</p>
-                    <p>support@abc.vn</p>
+                    <p>CÔNG TY TNHH THỜI TRANG TAP</p>
+                    <p>123 ABC - HCM</p>
+                    <p>18002091</p>
+                    <p>support@tap.vn</p>
                     <p>Mst: 0401223344</p>
                 </div>
                 <div class="footer-content-item">

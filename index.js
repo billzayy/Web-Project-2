@@ -16,13 +16,19 @@ const adminBillDetail = require('./adminBillDetail')
 const shoppingCard = require('./shoppingcard');
 const homepage = require('./homepage');
 const contacts = require('./contact');
+const profile = require('./profile')
 
-var app = express(); 
+
+var app = express();
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: true }));
 //hiện thi sản phẩm
 app.get('/', function (req, res) {
+    res.redirect('/index');
+});
+
+app.get('/all', function (req, res) {
     sql.executeSQL("select * from SanPham order by pindex", (recordset) => {
         var result = "";
         recordset.recordsets[0].forEach(row => {
@@ -132,9 +138,9 @@ app.get("/getImage/:id", function (req, res) {
 app.post('/getlogin', function (req, res) {
     login.login(req.body.user, req.body.password, (user) => {
         res.send(user);
-    
+
     })
-    
+
 });
 
 app.get('/login', function (req, res) {
@@ -227,6 +233,31 @@ app.get('/blogs', function (req, res) {
 app.get('/getblogs', function (req, res) {
     blogs.blogs(req, res);
 });
+app.get('/blogs/:id', function (req, res) {
+    res.sendFile(__dirname + "/blog.html");
+});
+app.get('/getblog/:id', function (req, res) {
+    sql.executeSQL(`select * from Blogs where id_blogs = ${req.params.id}`, (recordset) => {
+        var row = recordset.recordsets[0][0];
+        console.log(".....................")
+        console.log(row)
+        if (row === null || row === undefined) {
+            res.send("");
+            }
+            else {
+                var result = "";
+                result += `
+                <div style='width:100%;float:center;margin-top:20px'>
+                    <div style="text-align:left;line-height:100px;margin-top:20px;font-size: 30px;"><b>${row['Title']}</b></div>
+                    <img style="width:40%" class="center" src='/images/${row['Imag']}'/>
+                    <div style="text-align:left;line-height: 30px;margin-top:20px;font-size:18px;">${row['Noidung']}</div>
+                </div>
+                `;
+                res.send(result);
+                console.log(row)
+            }
+        })
+    });
 
 // contact
 app.get('/contact', function (req, res) {
@@ -246,7 +277,7 @@ app.post('/buyProduct', async function (req, res) {
     await shoppingCard.buyProduct(req.body.id_KH,req.body.TongTien, req.body.arrSP);
     res.send("ok")
 });
-app.get('/getInfo', function (req, res) {
+app.get('/getInfo/:id', function (req, res) {
     shoppingCard.info(req, res);
 });
 
@@ -257,11 +288,23 @@ app.get('/homepage', function (req, res) {
 app.get('/homepage', function (req, res) {
     homepage.homepage(req, res);
 });
+//Profile
+
+app.get('/profile', (req, res) => {
+    res.sendFile(__dirname + '/profile.html')
+})
+
+app.get('/getProfile/:id', (req, res) => {
+    profile.getProfile(req,res)
+})
+app.get('/updateProfile/:id/:Name/:Password/:Email/:TenKH/:DiaChi/:SDT', (req, res) => {
+    profile.updateProfile(req,res)
+})
 
 //contact
 app.get('/addcontact/:Ho/:Ten/:Email/:SDT/:Loi_nhan', (req, res) => {
     contacts.addcontact(req, res);
-})
+
 app.listen(3000, function () {
     console.log('Server is running..');
 });

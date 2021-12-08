@@ -141,6 +141,7 @@ section .container .containerForm .formBox .inputBox textarea{
 section .container .containerForm .formBox .inputBox span{
     position: absolute;
     left: 0;
+    
     padding: 5px 0;
     font-size: 18px;
     font-weight: 300;
@@ -169,7 +170,8 @@ section .container .contactForm .formBox .inputBox input[type="submit"]{
     padding: 12px
 }
 section .container .contactForm .formBox .inputBox input[type="submit"]:hover{
-    color: #ff568c;}
+    color: #ff568c;
+}
 #A1:hover{
         background-color: black;
         color: white;}
@@ -181,3 +183,4 @@ section .container .contactForm .formBox .inputBox input[type="submit"]:hover{
     padding: 1em;
     font-size: 18px;
 }
+

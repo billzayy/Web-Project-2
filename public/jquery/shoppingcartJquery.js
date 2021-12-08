@@ -97,7 +97,8 @@ function onDeleteProduct(ProductId) {
 }
 // xuất thông tin người mua
 $(document).ready(function () {
-    $.get("getInfo/", function(data, status){
+    let a = JSON.parse(localStorage.getItem('user'))[0].id
+    $.get(`getInfo/${a}`, function(data, status){
           $('#content_info').html(data);
         });
     getShoppingCard();
