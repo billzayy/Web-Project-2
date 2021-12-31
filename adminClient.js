@@ -19,13 +19,13 @@ function updateClient(req, res) {
     Name = '${req.params.Name}' , Password = '${req.params.Password}',
     Email = '${req.params.Email}', Author = '${req.params.Author}',
     TenKH = '${req.params.TenKH}', DiaChi = '${req.params.DiaChi}',SDT = '${req.params.SDT}'
-     where id = ${req.params.id}`, (recordset) => {
+    where id_Login = ${req.params.id}`, (recordset) => {
         res.send(recordset.recordsets[0])
     })
 }
 
 function deleteClient(req, res) {
-    sql.executeSQL(`Delete from Login where id = ${req.params.id}`, (recordset) => {
+    sql.executeSQL(`Delete from Login where id_Login = ${req.params.id}`, (recordset) => {
         res.send(recordset.recordsets[0])
     })
 }

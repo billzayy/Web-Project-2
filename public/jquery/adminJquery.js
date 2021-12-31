@@ -378,8 +378,8 @@ function getData(datatype) {
                     <td> ${item.DiaChi}</td>
                     <td> ${item.SDT}</td>
                     <td>
-                        <input type='button' value='Edit' onclick="onClientEdit('${item.id}','${item.Name}','${item.Password}','${item.Email}','${item.Author}','${item.TenKH}','${item.DiaChi}','${item.SDT}')">
-                        <input type='button' value='Delete' onclick= "onClientDelete('${item.id}')">
+                        <input type='button' value='Edit' onclick="onClientEdit('${item.id_Login}','${item.Name}','${item.Password}','${item.Email}','${item.Author}','${item.TenKH}','${item.DiaChi}','${item.SDT}')">
+                        <input type='button' value='Delete' onclick= "onClientDelete('${item.id_Login}')">
                     </td>
                 </tr>`;
             });

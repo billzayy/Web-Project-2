@@ -8,7 +8,7 @@ $(document).ready(function () {
             },
             function (data, status) {
                 if (data.length === 0) {
-                    alert("login fail");
+                    alert("Login fail!");
                 }
                 else if (data[0].Author === "Admin"){
                     window.location.href = "./admin";

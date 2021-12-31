@@ -7,7 +7,7 @@ function onSave() {
     let DiaChi = $('#diachiProfile_txt').val();
     let SDT = $('#sdtProfile_txt').val();
     $.get(`/updateProfile/${idBox}/${Name}/${Password}/${Email}/${TenKH}/${DiaChi}/${SDT}`, (data, status) => {
-        alert("Change Success! Please sign in again")
+        alert("Change Success!")
         window.location.reload("/profile.html")
     })
 }
@@ -68,7 +68,7 @@ $(document).ready(() => {
                             <input type="text" class="form-control" id = "sdtProfile_txt" placeholder="SDT" value = "${data[0].SDT}">
                         </div>
    
-                        <input type="hidden" class="form-control" id = "IdProfile" value = "${data[0].id}">
+                        <input type="hidden" class="form-control" id = "IdProfile" value = "${data[0].id_Login}">
                     </div>
 
                     <div class="mt-5 text-center">
@@ -115,7 +115,6 @@ $(document).ready(() => {
         </div>
     </div>`
         $('#content').html(result)
-        console.log(data[0].TenKH)
     })
 })
 

@@ -1,7 +1,6 @@
 ﻿create database Clothing_Web
 use Clothing_Web
 go
-
 create table Login(
 	id_Login	numeric(18,0)		NOT NULL		IDENTiTY(1,1),
 	Name		nvarchar(500)		NULL,
@@ -50,6 +49,8 @@ create table ChiTietHoaDon(
 	Foreign Key (id_HD) references HoaDon(id_HD),
 	Foreign Key(id) references SanPham(id)
 )
+Alter table ChiTietHoaDon
+Drop Constraint FK__ChiTietHoaDo__id__2E1BDC42
 go
 create table Blogs(
 	id_blogs	numeric(18,0)		NOT NULL,
